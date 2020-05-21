@@ -1,32 +1,47 @@
 import Phaser from "phaser";
-import logoImg from "./assets/logo.png";
+import sci1Img from "./assets/sci1.png";
+import sci2Img from "./assets/sci2.png";
+import enemy from './enemy';
+import player from './player';
+import playerSprite from './assets/play.gif';
+// import MainScene from '../src/scenes/MainScene';
 
 const config = {
   type: Phaser.AUTO,
-  parent: "phaser-example",
-  width: 800,
-  height: 600,
+  width: 1275,
+  height: 700,
+  physics: {
+    default: 'arcade',
+    arcade: {
+        gravity: { y: 300 },
+        debug: false
+    }
+  },
   scene: {
-    preload: preload,
-    create: create
+    preload,
+    create,
+    update
   }
 };
 
 const game = new Phaser.Game(config);
 
 function preload() {
-  this.load.image("logo", logoImg);
+  this.load.image('bg',sci1Img);
+  this.load.image("logo", sci2Img);
+  this.load.image('mainPlayer', playerSprite);
+  enemy();
+  player();
 }
 
 function create() {
-  const logo = this.add.image(400, 150, "logo");
+  const bg = this.add.image(1270, 600, 'bg');
+  const logo = this.add.image(700, 150);
+  const mainPlayer = this.add.image(400, 160, 'mainPLayer');
+ 
+}
 
-  this.tweens.add({
-    targets: logo,
-    y: 450,
-    duration: 2000,
-    ease: "Power2",
-    yoyo: true,
-    loop: -1
-  });
+function update() {
+  
+  
 }
