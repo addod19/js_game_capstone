@@ -1,47 +1,29 @@
 import Phaser from "phaser";
+import config from './config';
 import sci1Img from "./assets/sci1.png";
 import sci2Img from "./assets/sci2.png";
 import enemy from './enemy';
-import player from './player';
+import Player from './player';
 import playerSprite from './assets/play.gif';
-// import MainScene from '../src/scenes/MainScene';
+import MainScene from '../src/scenes/MainScene';
 
-const config = {
-  type: Phaser.AUTO,
-  width: 1275,
-  height: 700,
-  physics: {
-    default: 'arcade',
-    arcade: {
-        gravity: { y: 300 },
-        debug: false
-    }
-  },
-  scene: {
-    preload,
-    create,
-    update
+class Game extends Phaser.Game {
+  constructor() {
+    super(config);
+    // const sound = new Sound();
+
+    // this.globals = { sound, bgMusic: null };
+    // this.scene.add('Boot', BootScene);
+    this.scene.add('MainScene', MainScene);
+    // this.scene.add('Title', TitleScene);
+    // this.scene.add('Options', OptionsScene);
+    // this.scene.add('Credits', CreditsScene);
+    // this.scene.add('Game', GameScene);
+    // this.scene.add('Guide', GuideScene);
+    // this.scene.add('DispalyScore', DisplayScoreScene);
+    this.scene.start('MainScene');
   }
-};
-
-const game = new Phaser.Game(config);
-
-function preload() {
-  this.load.image('bg',sci1Img);
-  this.load.image("logo", sci2Img);
-  this.load.image('mainPlayer', playerSprite);
-  enemy();
-  player();
 }
 
-function create() {
-  const bg = this.add.image(1270, 600, 'bg');
-  const logo = this.add.image(700, 150);
-  const mainPlayer = this.add.image(400, 160, 'mainPLayer');
- 
-}
-
-function update() {
-  
-  
-}
+// let game;
+window.game = new Game();
