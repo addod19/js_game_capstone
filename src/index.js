@@ -6,6 +6,7 @@ import enemy from './enemy';
 import Player from './player';
 import playerSprite from './assets/play.gif';
 import MainScene from '../src/scenes/MainScene';
+import IntroScene from '../src/scenes/IntroScene';
 
 class Game extends Phaser.Game {
   constructor() {
@@ -15,7 +16,7 @@ class Game extends Phaser.Game {
     // this.globals = { sound, bgMusic: null };
     // this.scene.add('Boot', BootScene);
     this.scene.add('MainScene', MainScene);
-    // this.scene.add('Title', TitleScene);
+    this.scene.add('Title', IntroScene);
     // this.scene.add('Options', OptionsScene);
     // this.scene.add('Credits', CreditsScene);
     // this.scene.add('Game', GameScene);
