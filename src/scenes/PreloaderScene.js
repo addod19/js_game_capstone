@@ -2,7 +2,7 @@ import 'phaser';
 
 class PreloaderScene extends Phaser.Scene {
   constructor() {
-    super('Preloader');
+    super({ key: 'Preloader'});
   }
 
   init() {
@@ -12,7 +12,7 @@ class PreloaderScene extends Phaser.Scene {
   preload() {
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
-    progressBox.fillStyle(0x222222, 0.8);
+    progressBox.fillStyle( (54, 106, 191), 0.5);
     progressBox.fillRect(240, 270, 320, 50);
 
     const { width } = this.cameras.main;
@@ -20,20 +20,20 @@ class PreloaderScene extends Phaser.Scene {
     const loadingText = this.make.text({
       x: width / 2,
       y: height / 2 - 50,
-      text: 'Loading...',
+      text: 'Loading Game...',
       style: {
-        font: '12px monospace',
-        fill: '#ffffff',
+        font: '2em san-serif',
+        fill: '#87101a',
       },
     });
-    loadingText.setOrigin(0.5, 0.5);
+    loadingText.setOrigin(2.9, 1);
 
     const percentText = this.make.text({
       x: width / 2,
       y: height / 2 - 5,
       text: '0%',
       style: {
-        font: '18px monospace',
+        font: '1.8em sans-serif',
         fill: '#ffffff',
       },
     });
@@ -44,7 +44,7 @@ class PreloaderScene extends Phaser.Scene {
       y: height / 2 + 50,
       text: '',
       style: {
-        font: '18px monospace',
+        font: '1.8em sans-serif',
         fill: '#ffffff',
       },
     });
@@ -78,10 +78,11 @@ class PreloaderScene extends Phaser.Scene {
     this.load.image('Button1', 'assets/gh.png');
     this.load.image('Button2', 'assets/action.gif');
 
-    this.load.image('box', 'assets/Crouch_walka.gif');
-    this.load.image('checkedBox', 'assets/sci2.png');
+    // this.load.image('box', 'assets/Crouch_walka.gif');
+    // this.load.image('checkedBox', 'assets/sci2.png');
     this.load.audio('bgMusic', ['assets/battleMus.mp3']);
-    this.load.audio('scream', ['assets/laser1.wav']);
+    this.load.audio('enemyScream', ['assets/osn2u.mp3']);
+    this.load.audio('shoot', ['assets/laser1.wav']);
   }
 
   ready() {

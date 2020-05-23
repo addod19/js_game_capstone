@@ -13,6 +13,8 @@ class GuideScene extends Phaser.Scene {
       fontSize: this.game.config.width / 15,
       align: 'center',
       backgroundColor: '#000000',
+      color: '#11edba',
+      fontFamily: 'open-sans'
     });
 
     this.gameTitle = this.add.text(config.width / 2 - 600, config.height / 2 , 'When '
@@ -21,14 +23,18 @@ class GuideScene extends Phaser.Scene {
       + '\n enemy as possible. The score keeps increasing for every kill'
       + '\n . If the mask man fails to kill enemy and enemy escapes'
       + '\n the game ends. Use arrow keys in the keyboard to'
-      + ' \n move up, and the space bar/ enter to shoot'
+      + ' \n move up, down, left, right, and the space bar/ enter to shoot'
       + '\n ' , {
       fontSize: this.game.config.width / 40,
       align: 'center',
       backgroundColor: '#000000',
+      color: '#11edba',
+      fontFamily: 'open-sans'
     });
 
-    this.gameButton = new Button(this, config.width / 2, config.height / 2 + 100, 'Button1', 'Button2', 'Play', 'Game');
+    this.gameButton = new Button(this, config.width / 2 - -300, config.height / 2 + 100, 'Button1', 'Button2', 'Play', 'DisplayScore');
+    console.log(this.gameButton);
+    
   }
 }
 

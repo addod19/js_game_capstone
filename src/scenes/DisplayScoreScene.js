@@ -22,24 +22,13 @@ class DisplayScoreScene extends Phaser.Scene {
 
   inputName() {
     this.userName = this.add.text(config.width / 2 - 270, config.height / 2 - 78,
-      'Enter your Name : ', {
-        fontSize: this.game.config.width / 40,
+      'Enter your Name, Gamer : ', {
+        fontSize: this.game.config.width / 50,
         align: 'center',
         backgroundColor: '#000000',
       });
     this.userName.setScrollFactor(0);
-    this.formUtil = new FormUtil({
-      scene: this,
-      rows: 11,
-      cols: 11,
-    });
-    this.formUtil.scaleToGameW('area51', 0.3);
-    this.formUtil.scaleToGameH('area51', 0.08);
-    this.formUtil.placeElementAt(75, 'area51', true, true);
-    this.user = this.formUtil.addChangeCallback('area51', this.textAreaChanged, this);
-    this.formUtil.scaleToGameW('btnSend', 0.25);
-    this.formUtil.placeElementAt(97, 'btnSend');
-    this.formUtil.addClickCallback('btnSend', this.displayLeaderboard, this);
+
     return this.user;
   }
 
@@ -64,7 +53,7 @@ class DisplayScoreScene extends Phaser.Scene {
 
   async getScores() {
     const topScores = [];
-    fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/BxAIfHmwEjEPsh8DTd3o/scores/')
+    fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Zl4d7IVkemOTTVg2fUdz/scores/')
       .then(response => response.json())
       .then(scores => {
         const { result } = scores;
@@ -80,6 +69,7 @@ class DisplayScoreScene extends Phaser.Scene {
         });
         this.displayPlayersScore(topScores);
       });
+      console.log(result);
     return topScores;
   }
 
@@ -140,7 +130,7 @@ class DisplayScoreScene extends Phaser.Scene {
 
 
   async postScore(u, s) {
-    const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/BxAIfHmwEjEPsh8DTd3o/scores/';
+    const url = '';
     const userScore = {
       user: u,
       score: s,

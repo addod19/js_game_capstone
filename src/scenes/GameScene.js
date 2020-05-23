@@ -45,22 +45,22 @@ class GameScene extends Phaser.Scene {
     });
 
     this.enemyGroup.children.iterate((child) => {
-      const xx = Math.floor(Math.random() * this.background.displayWidth);
-      const yy = Math.floor(Math.random() * this.background.displayHeight);
-      child.x = xx;
-      child.y = yy;
+      const cord1 = Math.floor(Math.random() * this.background.displayWidth);
+      const cord2 = Math.floor(Math.random() * this.background.displayHeight);
+      child.x = cord1;
+      child.y = cord2;
       child.displayWidth = this.game.config.width * 0.05;
       child.scaleY = child.scaleX;
 
-      let vx = Math.floor(Math.random() * 2) - 1;
-      let vy = Math.floor(Math.random() * 2) - 1;
-      if (vx === 0 && vy === 0) {
-        vx = 1;
-        vy = 1;
+      let pCord1 = Math.floor(Math.random() * 2) - 1;
+      let pCord2 = Math.floor(Math.random() * 2) - 1;
+      if (pCord1 === 0 && pCord2 === 0) {
+        pCord1 = 1;
+        pCord2 = 1;
       }
       const speed = Math.floor(Math.random() * 100) + 15;
       setTimeout(() => {
-        child.body.setVelocity(vx * speed, vy * speed);
+        child.body.setVelocity(pCord1 * speed, pCord2 * speed);
       }, 1000);
     });
     this.physics.add.collider(this.enemyGroup, this.shooter, this.enemyScream, null, this);
@@ -77,7 +77,7 @@ class GameScene extends Phaser.Scene {
     this.text1 = this.add.text(10, 10, 'Score Earned: ', {
       fontSize: this.game.config.width / 40,
       align: 'center',
-      backgroundColor: '#000000',
+      backgroundColor: '#ba2051',
     });
 
     this.text1.setScrollFactor(0);
@@ -112,14 +112,14 @@ class GameScene extends Phaser.Scene {
 
     if (this.score > 0) {
       this.gameScoreBtn = new Button(this, config.width / 2, config.height / 2 + 80,
-        'blueButton1', 'blueButton2', 'Score Board', '');
+        'Button1', 'Button2', 'Score Board', '');
       this.gameScoreBtn.setScrollFactor(0);
       setTimeout(() => {
         this.scene.start('DisplayScore', { level: this.score });
       }, 1000);
     } else {
       this.quitGameBtn = new Button(this, config.width / 2, config.height / 2 + 80,
-        'blueButton1', 'blueButton2', 'Exit Game', 'Title');
+        'Button1', 'Button2', 'Exit Game', 'Title');
       this.quitGameBtn.setScrollFactor(0);
     }
     this.gameOver.setScrollFactor(0);
