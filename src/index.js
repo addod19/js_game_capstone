@@ -1,29 +1,34 @@
-import Phaser from "phaser";
-import config from './config';
+/*  global Phaser  */
+/*  eslint no-undef: "error"  */
 
-import enemy from './enemy';
-import Player from './player';
-import playerSprite from './assets/play.gif';
-import MainScene from '../src/scenes/MainScene';
-import IntroScene from '../src/scenes/IntroScene';
-import Sound from './Sound';
-import BootScene from '../src/scenes/BootScene';
+import 'phaser';
+import config from './config';
+import GameScene from './scenes/GameScene';
+import GuideScene from './scenes/GuideScene';
+import BootScene from './scenes/BootScene';
+import PreloaderScene from './scenes/PreloaderScene';
+import TitleScene from './scenes/TitleScene';
+import OptionsScene from './scenes/OptionsScene';
+import CreditsScene from './scenes/CreditsScene';
+import DisplayScoreScene from './scenes/DisplayScoreScene';
+import Model from './Model';
+// import FormUtil from './Scenes/util/formUtil';
 
 class Game extends Phaser.Game {
   constructor() {
     super(config);
-    const sound = new Sound();
+    const model = new Model();
 
-    this.globals = { sound, bgMusic: null };
+    this.globals = { model, bgMusic: null };
     this.scene.add('Boot', BootScene);
-    this.scene.add('MainScene', MainScene);
-    this.scene.add('Title', IntroScene);
-    // this.scene.add('Options', OptionsScene);
-    // this.scene.add('Credits', CreditsScene);
-    // this.scene.add('Game', GameScene);
-    // this.scene.add('Guide', GuideScene);
-    // this.scene.add('DispalyScore', DisplayScoreScene);
-    this.scene.start('MainScene');
+    this.scene.add('Preloader', PreloaderScene);
+    this.scene.add('Title', TitleScene);
+    this.scene.add('Options', OptionsScene);
+    this.scene.add('Credits', CreditsScene);
+    this.scene.add('Game', GameScene);
+    this.scene.add('Guide', GuideScene);
+    this.scene.add('DispalyScore', DisplayScoreScene);
+    this.scene.start('Boot');
   }
 }
 

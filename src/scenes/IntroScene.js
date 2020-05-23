@@ -8,13 +8,13 @@ import Button from '../elements/Button';
 
 export default class IntroScene extends Phaser.Scene {
   constructor() {
-    super('Title');
+    super('Intro');
   }
 
   create() {
     // Game Title
 
-    this.gameTitle = this.add.text(config.width / 2 - 80, config.height / 2 - 150, 'Best Shooter? ', {
+    this.gameTitle = this.add.text(config.width / 2 - 80, config.height / 2 - 150, 'Best Maskman? ', {
       fontSize: this.game.config.width / 20,
       align: 'center',
       backgroundColor: '#32a852',
@@ -29,11 +29,11 @@ export default class IntroScene extends Phaser.Scene {
     // Credits
     this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 80, 'Button1', 'Button2', 'Credits', 'Credits');
 
-    this.model = this.sys.game.globals.model;
-    if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
+    this.soundz = this.sys.game.globals.soundz;
+    if (this.soundz.musicOn === true && this.soundz.bgMusicPlaying === false) {
       this.bgMusic = this.sound.add('bgMusic', { volume: 0.5, loop: true });
       this.bgMusic.play();
-      this.model.bgMusicPlaying = true;
+      this.soundz.bgMusicPlaying = true;
       this.sys.game.globals.bgMusic = this.bgMusic;
     }
   }

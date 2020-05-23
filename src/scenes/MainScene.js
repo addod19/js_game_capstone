@@ -84,23 +84,13 @@ export default class MainScene extends Phaser.Scene {
       // this.load.audio('bgMusic', ['assets/b131.mp3']);
       this.load.audio('shoot', laserSound);
 
-      // this.load.image("Bg0", sci1Img);
-      // this.load.image("Bg1", sci2Img);
-      // this.load.spritesheet("myExplosion", sci3Img, {
-      //   frameWidth: 32,
-      //   frameHeight: 32
-      // });
-      // this.load.spritesheet("Enemy0", sci4Img, {
-      //   frameWidth: 16,
-      //   frameHeight: 16
-      // });
     }
 
     ready() {
-      this.scene.start('Title');
+      this.scene.start('Intro');
       this.readyCount += 1;
       if (this.readyCount === 2) {
-        this.scene.start('Title');
+        this.scene.start('Intro');
       }
     }
 

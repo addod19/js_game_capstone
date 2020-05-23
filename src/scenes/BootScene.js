@@ -1,6 +1,5 @@
-import bg from '../assets/sci1.png';
-import player from '../assets/sci2.png';
-import enemy from '../assets/enemy';
+/*  global Phaser  */
+/*  eslint no-undef: "error"  */
 
 import 'phaser';
 
@@ -10,9 +9,9 @@ export default class BootScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('background', bg);
-    this.load.image('player', player);
-    this.load.spritesheet('birds', enemy, {
+    this.load.image('background', 'assets/sci1.png');
+    this.load.image('plane', 'assets/play.gif');
+    this.load.spritesheet('birds', 'assets/enemy.png', {
       frameWidth: 125,
       frameHeight: 100,
     });
