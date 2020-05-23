@@ -1,12 +1,8 @@
-/*  global Phaser  */
-/*  eslint no-undef: "error"  */
-/*  eslint class-methods-use-this: ["error", { "exceptMethods": ["preload"] }]  */
-
 import 'phaser';
 import config from '../config';
-import Button from '../Objects/Button';
+import Button from '../Elements/Button';
 
-export default class GameScene extends Phaser.Scene {
+class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
   }
@@ -15,7 +11,6 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create() {
-    // this.sys.game.globals.bgMusic.play();
     this.text = this.add.text(32, 32);
     this.displayResult = '';
     this.score = 0;
@@ -54,10 +49,9 @@ export default class GameScene extends Phaser.Scene {
       const yy = Math.floor(Math.random() * this.background.displayHeight);
       child.x = xx;
       child.y = yy;
-      // Align.scaleToGameW(child, .1);
       child.displayWidth = this.game.config.width * 0.05;
       child.scaleY = child.scaleX;
-      // -1,0,1
+
       let vx = Math.floor(Math.random() * 2) - 1;
       let vy = Math.floor(Math.random() * 2) - 1;
       if (vx === 0 && vy === 0) {
@@ -75,7 +69,6 @@ export default class GameScene extends Phaser.Scene {
 
   enemyScream(shooter, enemy) {
     this.sound.play('scream');
-    // this.sys.game.globals.bgMusic.stop();
     enemy.destroy();
     this.endGame();
   }
@@ -135,7 +128,7 @@ export default class GameScene extends Phaser.Scene {
 
   update() {
     this.plane.body.setVelocity(0);
-    // Horizontal movement
+
     if (this.cursors.left.isDown) {
       this.plane.body.setVelocityX(-80);
       this.upscore();
@@ -143,7 +136,7 @@ export default class GameScene extends Phaser.Scene {
       this.plane.body.setVelocityX(80);
       this.upscore();
     }
-    // Vertical movement
+
     if (this.cursors.up.isDown) {
       this.plane.body.setVelocityY(-80);
       this.upscore();
@@ -157,3 +150,5 @@ export default class GameScene extends Phaser.Scene {
     this.game.debug.text(`Elapsed seconds: ${this.game.time.totalElapsedSeconds()}`, 32, 32);
   }
 }
+
+export default GameScene;

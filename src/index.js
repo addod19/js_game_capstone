@@ -1,6 +1,3 @@
-/*  global Phaser  */
-/*  eslint no-undef: "error"  */
-
 import 'phaser';
 import config from './config';
 import GameScene from './scenes/GameScene';
@@ -11,15 +8,14 @@ import TitleScene from './scenes/TitleScene';
 import OptionsScene from './scenes/OptionsScene';
 import CreditsScene from './scenes/CreditsScene';
 import DisplayScoreScene from './scenes/DisplayScoreScene';
-import Model from './Model';
-// import FormUtil from './Scenes/util/formUtil';
+import SceneSounds from './SceneSounds';
 
 class Game extends Phaser.Game {
   constructor() {
     super(config);
-    const model = new Model();
+    const sceneSound = new SceneSounds();
 
-    this.globals = { model, bgMusic: null };
+    this.globals = { sceneSound, bgMusic: null };
     this.scene.add('Boot', BootScene);
     this.scene.add('Preloader', PreloaderScene);
     this.scene.add('Title', TitleScene);

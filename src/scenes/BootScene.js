@@ -1,9 +1,6 @@
-/*  global Phaser  */
-/*  eslint no-undef: "error"  */
-
 import 'phaser';
 
-export default class BootScene extends Phaser.Scene {
+class BootScene extends Phaser.Scene {
   constructor() {
     super('Boot');
   }
@@ -21,3 +18,5 @@ export default class BootScene extends Phaser.Scene {
     this.scene.start('Preloader');
   }
 }
+
+export default BootScene;

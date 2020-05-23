@@ -1,14 +1,14 @@
 import 'phaser';
 import config from '../config';
-import Button from '../Objects/Button';
+import Button from '../Elements/Button';
 
-export default class OptionsScene extends Phaser.Scene {
+class OptionsScene extends Phaser.Scene {
   constructor() {
     super('Options');
   }
 
   create() {
-    this.model = this.sys.game.globals.model;
+    this.sceneSound = this.sys.game.globals.sceneSound;
 
     this.text = this.add.text(300, 50, 'Options', { fontSize: 40 });
     this.musicButton = this.add.image(200, 100, 'checkedBox');
@@ -17,7 +17,7 @@ export default class OptionsScene extends Phaser.Scene {
     this.musicButton.setInteractive();
 
     this.musicButton.on('pointerdown', () => {
-      this.model.musicOn = !this.model.musicOn;
+      this.sceneSound.musicOn = !this.sceneSound.musicOn;
       this.updateAudio();
     });
 
@@ -29,17 +29,19 @@ export default class OptionsScene extends Phaser.Scene {
   }
 
   updateAudio() {
-    if (this.model.musicOn === false) {
+    if (this.sceneSound.musicOn === false) {
       this.musicButton.setTexture('box');
       this.sys.game.globals.bgMusic.stop();
-      this.model.bgMusicPlaying = false;
+      this.sceneSound.bgMusicPlaying = false;
     } else {
       this.musicButton.setTexture('checkedBox');
-      if (this.model.bgMusicPlaying === false) {
+      if (this.sceneSound.bgMusicPlaying === false) {
         this.sys.game.globals.bgMusic.play();
-        this.model.bgMusicPlaying = true;
+        this.sceneSound.bgMusicPlaying = true;
       }
     }
 
   }
 }
+
+export default OptionsScene;

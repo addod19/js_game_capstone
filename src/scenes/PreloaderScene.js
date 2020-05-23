@@ -1,9 +1,6 @@
-/*  global Phaser  */
-/*  eslint no-undef: "error"  */
-
 import 'phaser';
 
-export default class PreloaderScene extends Phaser.Scene {
+class PreloaderScene extends Phaser.Scene {
   constructor() {
     super('Preloader');
   }
@@ -76,9 +73,8 @@ export default class PreloaderScene extends Phaser.Scene {
       this.ready();
     });
 
-    this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
+    this.timedEvent = this.time.delayedCall(4000, this.ready, [], this);
 
-    // load assets needed in our game
     this.load.image('Button1', 'assets/gh.png');
     this.load.image('Button2', 'assets/action.gif');
 
@@ -96,3 +92,5 @@ export default class PreloaderScene extends Phaser.Scene {
     }
   }
 }
+
+export default PreloaderScene;

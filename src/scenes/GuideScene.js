@@ -1,18 +1,13 @@
-/*  global Phaser  */
-/*  eslint no-undef: "error"  */
-/*  eslint class-methods-use-this: ["error", { "exceptMethods": ["centerButtonText"] }]  */
-
 import 'phaser';
 import config from '../config';
-import Button from '../Objects/Button';
+import Button from '../Elements/Button';
 
-export default class GuideScene extends Phaser.Scene {
+class GuideScene extends Phaser.Scene {
   constructor() {
     super('Guide');
   }
 
   create() {
-    // Game Title
 
     this.gameTitle = this.add.text(config.width / 3 - 150, config.height / 2 - 100, 'Best Maskman ', {
       fontSize: this.game.config.width / 15,
@@ -36,3 +31,5 @@ export default class GuideScene extends Phaser.Scene {
     this.gameButton = new Button(this, config.width / 2, config.height / 2 + 100, 'Button1', 'Button2', 'Play', 'Game');
   }
 }
+
+export default GuideScene;

@@ -1,11 +1,7 @@
-/*  global game  */
-/*  eslint no-undef: "error"  */
-
-export default class AlignGrid {
+class AlignGrid {
   constructor(config) {
     this.config = config;
     if (!config.scene) {
-      // console.log('missing scene');
       return;
     }
     if (!config.rows) {
@@ -21,9 +17,9 @@ export default class AlignGrid {
       config.width = game.config.width;
     }
     this.scene = config.scene;
-    //  cell width
+
     this.cw = config.width / config.cols;
-    //  cell height
+    
     this.ch = config.height / config.rows;
   }
 
@@ -42,7 +38,6 @@ export default class AlignGrid {
   }
 
   placeAt(xx, yy, obj) {
-    //  calc position based upon the cellwidth and cellheight
     const x2 = this.cw * xx + this.cw / 2;
     const y2 = this.ch * yy + this.ch / 2;
     obj.x = x2;
@@ -57,9 +52,6 @@ export default class AlignGrid {
 
   findNearestIndex(xx, yy) {
     const row = Math.floor(yy / this.ch);
-    const col = Math.floor(xx / this.cw);
-    // console.log('row=' + row);
-    // console.log('col=' + col);
     const index = (row * this.config.cols) + col;
     return index;
   }
@@ -90,3 +82,5 @@ export default class AlignGrid {
     }
   }
 }
+
+export default AlignGrid;

@@ -1,9 +1,6 @@
-/*  global Phaser  */
-/*  eslint no-undef: "error"  */
-
 import 'phaser';
 
-export default class Button extends Phaser.GameObjects.Container {
+class Button extends Phaser.GameObjects.Container {
   constructor(scene, x, y, key1, key2, text, targetScene) {
     super(scene);
     this.scene = scene;
@@ -32,3 +29,5 @@ export default class Button extends Phaser.GameObjects.Container {
     this.scene.add.existing(this);
   }
 }
+
+export default Button;

@@ -1,14 +1,8 @@
-/*  global Phaser  */
-/*  eslint no-undef: "error"  */
-/*  eslint class-methods-use-this: ["error", { "exceptMethods": ["postScore"] }] */
-/*  eslint prefer-destructuring: ["error", {AssignmentExpression: {array: false}}] */
-
 import 'phaser';
 import config from '../config';
-import Button from '../Objects/Button';
-// import FormUtil from '../Objects/FormUtil';
+import Button from '../Elements/Button';
 
-export default class DisplayScoreScene extends Phaser.Scene {
+class DisplayScoreScene extends Phaser.Scene {
   constructor() {
     super('DisplayScore');
   }
@@ -17,8 +11,8 @@ export default class DisplayScoreScene extends Phaser.Scene {
     this.score = data.level;
   }
 
-  // preload() {
-  // }
+  preload() {
+  }
 
   create() {
     this.user = '';
@@ -49,19 +43,9 @@ export default class DisplayScoreScene extends Phaser.Scene {
     return this.user;
   }
 
-  textAreaChanged() {
-    this.user = this.formUtil.getTextAreaValue('area51');
-    // console.log(` ${this.user}   ' first '    ${this.score} `);
-    return this.user;
-  }
-
   displayLeaderboard() {
     this.postScore(this.user, this.score);
     this.userName.setText('');
-    let elno = document.getElementById('area51');
-    elno.style.display = 'none';
-    elno = document.getElementById('btnSend');
-    elno.style.display = 'none';
 
     this.scoreLine1 = this.add.text(config.width / 2 - 50, config.height / 2 - 150,
       'Top Scores', {
@@ -74,7 +58,7 @@ export default class DisplayScoreScene extends Phaser.Scene {
       this.getScores();
     }, 1000);
     this.quitGameBtn = new Button(this, config.width / 2, config.height / 2 + 80,
-      'blueButton1', 'blueButton2', 'Exit Game', 'Title');
+      'Button1', 'Button2', 'Exit Game', 'Title');
     this.quitGameBtn.setScrollFactor(0);
   }
 
@@ -84,18 +68,15 @@ export default class DisplayScoreScene extends Phaser.Scene {
       .then(response => response.json())
       .then(scores => {
         const { result } = scores;
-        // console.log(result);
         result.forEach((row) => {
           const { user, score } = row;
           topScores.push([user, score]);
         });
-        // console.log(result.length);
         topScores.sort((x, y) => {
           if (x[1] === y[1]) {
             return 0;
-          } //  else {
+          }
           return (y[1] - x[1]);
-          //  }
         });
         this.displayPlayersScore(topScores);
       });
@@ -176,6 +157,7 @@ export default class DisplayScoreScene extends Phaser.Scene {
     // send POST request
     fetch(url, options)
       .then(res => res.json());
-    // .then(res => console.log(res));
   }
 }
+
+export default DisplayScoreScene;
