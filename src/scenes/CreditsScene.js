@@ -38,7 +38,7 @@ class CreditsScene extends Phaser.Scene {
     this.creditsTween = this.tweens.add({
       targets: this.creditsMicroverseText,
       y: 0,
-      ease: 'Power1',
+      ease: 'Power3',
       duration: 3000,
       delay: 1000,
     });
@@ -46,7 +46,7 @@ class CreditsScene extends Phaser.Scene {
     this.createdByTween = this.tweens.add({
       targets: this.createdByText,
       y: 30,
-      ease: 'Power1',
+      ease: 'Power3',
       duration: 3000,
       delay: 1000,
       onComplete: function x() {
@@ -56,7 +56,7 @@ class CreditsScene extends Phaser.Scene {
     this.emailTween = this.tweens.add({
       targets: this.emailText,
       y: 60,
-      ease: 'Power1',
+      ease: 'Power3',
       duration: 3000,
       delay: 1000,
       onComplete: function x() {
@@ -67,7 +67,7 @@ class CreditsScene extends Phaser.Scene {
     this.creditsOpenTween = this.tweens.add({
       targets: this.openGameArt,
       y: 80,
-      ease: 'Power1',
+      ease: 'Power3',
       duration: 3000,
       delay: 1000,
       onComplete: function x() {
