@@ -32,7 +32,7 @@ class GuideScene extends Phaser.Scene {
       fontFamily: 'open-sans'
     });
 
-    this.gameButton = new Button(this, config.width / 2 - -300, config.height / 2 + 100, 'Button1', 'Button2', 'Play', 'DisplayScore');
+    this.gameButton = new Button(this, config.width / 2 - -300, config.height / 2 + 100, 'Button1', 'Button2', 'Play', 'Game');
     console.log(this.gameButton);
     
   }

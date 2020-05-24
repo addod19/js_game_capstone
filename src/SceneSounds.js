@@ -1,6 +1,6 @@
 class SceneSounds {
     constructor() {
-      /* Setting up private variables */
+      /* Set up private variables */
       this._soundOn = true;
       this._musicOn = true;
       this._bgMusicPlaying = false;

@@ -10,7 +10,6 @@ import CreditsScene from './scenes/CreditsScene';
 import DisplayScoreScene from './scenes/DisplayScoreScene';
 import SceneSounds from './SceneSounds';
 
-// console.log(DisplayScoreScene.displayLeaderboard.getScores);
 
 class Game extends Phaser.Game {
   constructor() {

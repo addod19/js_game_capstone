@@ -1,6 +1,7 @@
 import 'phaser';
 import config from '../config';
 import Button from '../Elements/Button';
+// import Form from '../Elements/form';
 
 class DisplayScoreScene extends Phaser.Scene {
   constructor() {
@@ -18,16 +19,19 @@ class DisplayScoreScene extends Phaser.Scene {
     this.user = '';
     this.scoreList = [];
     this.user = this.inputName();
+
   }
 
   inputName() {
     this.userName = this.add.text(config.width / 2 - 270, config.height / 2 - 78,
       'Enter your Name, Gamer : ', {
-        fontSize: this.game.config.width / 50,
+        fontSize: '4em',
         align: 'center',
-        backgroundColor: '#000000',
+        color: '#7d12c9',
+        marginTop: '2em',
       });
     this.userName.setScrollFactor(0);
+
 
     return this.user;
   }
@@ -37,10 +41,10 @@ class DisplayScoreScene extends Phaser.Scene {
     this.userName.setText('');
 
     this.scoreLine1 = this.add.text(config.width / 2 - 50, config.height / 2 - 150,
-      'Top Scores', {
-        fontSize: this.game.config.width / 40,
+      'High Scores', {
+        fontSize: '4em',
         align: 'center',
-        backgroundColor: '#000000',
+        color: '#7d12c9',
       });
     this.scoreLine1.setScrollFactor(0);
     setTimeout(() => {
@@ -69,7 +73,7 @@ class DisplayScoreScene extends Phaser.Scene {
         });
         this.displayPlayersScore(topScores);
       });
-      console.log(result);
+      // console.log(result);
     return topScores;
   }
 
@@ -77,53 +81,53 @@ class DisplayScoreScene extends Phaser.Scene {
     let [user, score] = data[0];
     this.scoreLine2 = this.add.text(config.width / 2 - 80, config.height / 2 - 120,
       `${user}   -   ${score}`, {
-        fontSize: this.game.config.width / 40,
+        fontSize: '4em',
         align: 'center',
-        backgroundColor: '#000000',
+        color: '#7d12c9',
       });
     this.scoreLine2.setScrollFactor(0);
 
     [user, score] = data[1];
     this.scoreLine3 = this.add.text(config.width / 2 - 80, config.height / 2 - 100,
       `${user}   -   ${score}`, {
-        fontSize: this.game.config.width / 40,
+        fontSize: '4em',
         align: 'center',
-        backgroundColor: '#000000',
+        color: '#7d12c9',
       });
     this.scoreLine3.setScrollFactor(0);
 
     [user, score] = data[2];
     this.scoreLine4 = this.add.text(config.width / 2 - 80, config.height / 2 - 80,
       `${user}   -   ${score}`, {
-        fontSize: this.game.config.width / 40,
+        fontSize: '4em',
         align: 'center',
-        backgroundColor: '#000000',
+        color: '#7d12c9',
       });
     this.scoreLine4.setScrollFactor(0);
 
     [user, score] = data[3];
     this.scoreLine5 = this.add.text(config.width / 2 - 80, config.height / 2 - 60,
       `${user}   -   ${score}`, {
-        fontSize: this.game.config.width / 40,
+        fontSize: '4em',
         align: 'center',
-        backgroundColor: '#000000',
+        color: '#7d12c9',
       });
     this.scoreLine5.setScrollFactor(0);
 
     [user, score] = data[4];
     this.scoreLine6 = this.add.text(config.width / 2 - 80, config.height / 2 - 40,
       `${user}   -   ${score}`, {
-        fontSize: this.game.config.width / 40,
+        fontSize: '4em',
         align: 'center',
-        backgroundColor: '#000000',
+        color: '#7d12c9',
       });
     this.scoreLine6.setScrollFactor(0);
 
     this.scoreLine6 = this.add.text(config.width / 2 - 180, config.height / 2,
       `This game has been played ${data.length - 50} times`, {
-        fontSize: this.game.config.width / 40,
+        fontSize: '4em',
         align: 'center',
-        backgroundColor: '#000000',
+        color: '#7d12c9',
       });
     this.scoreLine6.setScrollFactor(0);
   }
