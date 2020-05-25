@@ -1,13 +1,58 @@
-# Phaser 3 Webpack Project Template
+# Best Maskman Game
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/)
-that includes hot-reloading for development and production-ready builds.
+> This project is a capstone project required by Microverse, after completing the javascript curriculum. This game is built with JS ES6 and Phaser3.
 
-Loading images via JavaScript module `import` is also supported.
+## Features
 
-## Requirements
+1. The player can navigate to the following scenes after the game loads
+Credits: This is where we give credits to the Microverse team, opengameart, and the creator of the game
+Options: We can toggle the background music on/off
+Play: We navigate the guide scene and understand how to play the game before proceeding
+2. A player can kill the enemy attacking
+3. After the game is over or the stage is completed, the player enters the name and exit
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+
+## Future Feature (v2.02)
+
+1. Improve the UI
+2. Add more levels to the game
+3. Each level should have a more attacking enemy
+
+## Video Presentation
+
+
+## Screenshots
+
+<img src="assets/maskman.png" alt="maskman">
+
+## Built With
+
+- Javascript es6
+- Phaser3
+- Babel
+- Webpack
+
+## Live Demo
+
+[Live Demo Link](https://addod19.github.io/js_game_capstone/)
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+1. `git clone https://github.com/addod19/js_game_capstone.git`
+2. `cd js_game_capstone`
+3. `git checkout initial`
+4. `npm i`
+5. `npm start`
+6. `npm run build`
+7. Use live server on VSCode to open the index.html with your favorite browser
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+- A modern browser
+
 
 ## Available Commands
 
@@ -17,39 +62,33 @@ Loading images via JavaScript module `import` is also supported.
 | `npm start` | Build project and open web server running project |
 | `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
 
-## Writing Code
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development
-server by running `npm start`.
+## Authors
 
+👤 **Author1**
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder
-and webpack will automatically recompile and reload your server (available at `http://localhost:8080`
-by default).
+- Github: [@addod19](https://github.com/addod19)
+- Twitter: [@DanielLarbiAdd1](https://twitter.com/DanielLarbiAdd1)
+- Linkedin: [Daniel Larbi Addo](https://linkedin.com/in/daniel-larbi-addo/)
+- Email: [Daniel Larbi Addo](addodaniellarbi@gmail.com)
 
-## Customizing Template
+## 🤝 Contributing
 
-### Babel
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you
-want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently
-targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+Contributions, issues and feature requests are welcome!
 
-  ```
-  "browsers": [
-    ">0.25%",
-    "not ie 11",
-    "not op_mini all"
-  ]
-  ```
+Feel free to check the [issues page](https://github.com/addod19/weather-app/issues).
 
-### Webpack
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can
-modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create
-new configuration files and target them in specific npm tasks inside of `package.json'.
+1. Fork it (https://github.com/addod19/js_game_capstone/fork)
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create a new Pull Request
 
-## Deploying Code
-After you run the `npm run build` command, your code will be built into a single bundle located at 
-`dist/bundle.min.js` along with any other assets you project depended. 
+## Show your support
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), 
-you should be able to open `http://mycoolserver.com/index.html` and play your game.
+Give us a ⭐️ if you like this project!
+
+## Acknowledgments
+- Microverse
+- Developers at Open Game Art; Marcus Rasseli, Binngi, Aljazk, Sogomn, Redshrike, Qubodup for the characters, sprites, laser, sound, background music etc
+                  
