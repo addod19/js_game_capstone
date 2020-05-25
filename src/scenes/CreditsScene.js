@@ -1,6 +1,9 @@
 import 'phaser';
 import config from '../config';
 
+/* global Phaser */
+/* eslint no-undef: "error" */
+
 class CreditsScene extends Phaser.Scene {
   constructor() {
     super('Credits');
@@ -10,7 +13,7 @@ class CreditsScene extends Phaser.Scene {
     this.creditsMicroverseText = this.add.text(0, 0, 'Special credits to Microverse', { fontSize: '32px', fill: '#c41425' });
     this.createdByText = this.add.text(0, 0, 'Created By:Daniel Larbi Addo', { fontSize: '26px', fill: '#edc811' });
     this.emailText = this.add.text(0, 0, 'addodaniellarbi@gmail.com', { fontSize: '18px', fill: '#32a852' });
-    this.openGameArt = this.add.text(0, 0, 'Special thanks to the Developers at the OpenGameArt, for the sound, music and characters', {fontSize: '20px', fill: '#fff'})
+    this.openGameArt = this.add.text(0, 0, 'Special thanks to the Developers at the OpenGameArt, for the sound, music and characters', { fontSize: '20px', fill: '#fff' });
     this.zone = this.add.zone(config.width / 2, config.height / 2, config.width, config.height);
 
     Phaser.Display.Align.In.Center(
@@ -60,8 +63,8 @@ class CreditsScene extends Phaser.Scene {
       duration: 3000,
       delay: 1000,
       onComplete: function x() {
-        
-      }
+
+      },
     });
 
     this.creditsOpenTween = this.tweens.add({

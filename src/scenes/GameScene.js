@@ -3,15 +3,15 @@ import config from '../config';
 import Button from '../Elements/Button';
 import background from '../../assets/sci1.png';
 
+/* global Phaser */
+/* eslint no-undef: "error" */
+
 class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
   }
 
-  preload() {
-  }
-
-  create() {  
+  create() {
     this.text = this.add.text(32, 32);
     this.displayResult = '';
     this.score = 0;
@@ -67,7 +67,6 @@ class GameScene extends Phaser.Scene {
     });
     this.physics.add.collider(this.enemyGroup, this.shooter, this.enemyScream, null, this);
     this.makeInfo();
-
   }
 
   enemyScream(shooter, enemy) {
@@ -84,7 +83,6 @@ class GameScene extends Phaser.Scene {
     });
 
     this.text1.setScrollFactor(0);
-
   }
 
   upscore() {

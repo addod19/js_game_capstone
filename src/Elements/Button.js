@@ -1,5 +1,8 @@
 import 'phaser';
 
+/* global Phaser */
+/* eslint no-undef: "error" */
+
 class Button extends Phaser.GameObjects.Container {
   constructor(scene, x, y, key1, key2, text, targetScene) {
     super(scene);

@@ -2,6 +2,9 @@ import 'phaser';
 import config from '../config';
 import Button from '../Elements/Button';
 
+/* global Phaser */
+/* eslint no-undef: "error" */
+
 class OptionsScene extends Phaser.Scene {
   constructor() {
     super('Options');
@@ -22,7 +25,6 @@ class OptionsScene extends Phaser.Scene {
     });
 
 
-    
     this.gameButton = new Button(this, config.width / 2, config.height / 2 + 100, 'Button1', 'Button2', 'Back', 'Title');
 
     this.updateAudio();
@@ -40,7 +42,6 @@ class OptionsScene extends Phaser.Scene {
         this.sceneSound.bgMusicPlaying = true;
       }
     }
-
   }
 }
 

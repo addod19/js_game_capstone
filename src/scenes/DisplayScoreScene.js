@@ -1,7 +1,10 @@
 import 'phaser';
 import config from '../config';
 import Button from '../Elements/Button';
-// import Form from '../Elements/form';
+
+/* global Phaser */
+/* eslint no-undef: "error" */
+
 
 class DisplayScoreScene extends Phaser.Scene {
   constructor() {
@@ -19,7 +22,6 @@ class DisplayScoreScene extends Phaser.Scene {
     this.user = '';
     this.scoreList = [];
     this.user = this.inputName();
-
   }
 
   inputName() {
@@ -73,7 +75,6 @@ class DisplayScoreScene extends Phaser.Scene {
         });
         this.displayPlayersScore(topScores);
       });
-      // console.log(result);
     return topScores;
   }
 
@@ -87,7 +88,8 @@ class DisplayScoreScene extends Phaser.Scene {
       });
     this.scoreLine2.setScrollFactor(0);
 
-    [user, score] = data[1];
+    [user, score] = data;
+
     this.scoreLine3 = this.add.text(config.width / 2 - 80, config.height / 2 - 100,
       `${user}   -   ${score}`, {
         fontSize: '4em',
@@ -96,7 +98,7 @@ class DisplayScoreScene extends Phaser.Scene {
       });
     this.scoreLine3.setScrollFactor(0);
 
-    [user, score] = data[2];
+    [user, score] = data;
     this.scoreLine4 = this.add.text(config.width / 2 - 80, config.height / 2 - 80,
       `${user}   -   ${score}`, {
         fontSize: '4em',
@@ -105,7 +107,7 @@ class DisplayScoreScene extends Phaser.Scene {
       });
     this.scoreLine4.setScrollFactor(0);
 
-    [user, score] = data[3];
+    [user, score] = data;
     this.scoreLine5 = this.add.text(config.width / 2 - 80, config.height / 2 - 60,
       `${user}   -   ${score}`, {
         fontSize: '4em',
@@ -114,7 +116,7 @@ class DisplayScoreScene extends Phaser.Scene {
       });
     this.scoreLine5.setScrollFactor(0);
 
-    [user, score] = data[4];
+    [user, score] = data;
     this.scoreLine6 = this.add.text(config.width / 2 - 80, config.height / 2 - 40,
       `${user}   -   ${score}`, {
         fontSize: '4em',

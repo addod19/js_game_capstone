@@ -1,3 +1,8 @@
+/* global col */
+/* eslint no-undef: "error" */
+/* global game */
+/* eslint no-undef: "error" */
+
 class AlignGrid {
   constructor(config) {
     this.config = config;
@@ -19,7 +24,7 @@ class AlignGrid {
     this.scene = config.scene;
 
     this.cw = config.width / config.cols;
-    
+
     this.ch = config.height / config.rows;
   }
 

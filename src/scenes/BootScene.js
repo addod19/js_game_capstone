@@ -1,5 +1,8 @@
 import 'phaser';
 
+/* global Phaser */
+/* eslint no-undef: "error" */
+
 class BootScene extends Phaser.Scene {
   constructor() {
     super('Boot');

@@ -1,8 +1,11 @@
 import 'phaser';
 
+/* global Phaser */
+/* eslint no-undef: "error" */
+
 class PreloaderScene extends Phaser.Scene {
   constructor() {
-    super({ key: 'Preloader'});
+    super({ key: 'Preloader' });
   }
 
   init() {
@@ -12,7 +15,7 @@ class PreloaderScene extends Phaser.Scene {
   preload() {
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
-    progressBox.fillStyle( (54, 106, 191), 0.5);
+    progressBox.fillStyle((54, 106, 191), 0.5);
     progressBox.fillRect(240, 270, 320, 50);
 
     const { width } = this.cameras.main;

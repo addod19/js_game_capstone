@@ -1,3 +1,6 @@
+/* global game */
+/* eslint no-undef: "error" */
+
 class Align {
   static scaleToGameW(obj, per) {
     obj.displayWidth = game.config.width * per;

@@ -10,6 +10,8 @@ import CreditsScene from './scenes/CreditsScene';
 import DisplayScoreScene from './scenes/DisplayScoreScene';
 import SceneSounds from './SceneSounds';
 
+/* global Phaser */
+/* eslint no-undef: "error" */
 
 class Game extends Phaser.Game {
   constructor() {

@@ -1,5 +1,8 @@
 import 'phaser';
 
+/* global Phaser */
+/* eslint no-undef: "error" */
+
 export default {
 
   type: Phaser.AUTO,
