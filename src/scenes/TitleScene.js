@@ -15,7 +15,7 @@ class TitleScene extends Phaser.Scene {
       backgroundColor: '#000000',
     });
 
-    this.gameButton = new Button(this, config.width / 2 - 400, config.height / 2 - 60, 'Button1', 'Button2', 'Play', 'Guide');
+    this.gameButton = new Button(this, config.width / 2 - 400, config.height / 2 - 60, 'Button1', 'Button2', 'Play', 'Game');
 
     this.optionsButton = new Button(this, config.width / 2 - 200, config.height / 2 - 60, 'Button1', 'Button2', 'Options', 'Options');
 

@@ -25,7 +25,7 @@ class GuideScene extends Phaser.Scene {
       + '\n the game ends. Use arrow keys in the keyboard to'
       + ' \n move up, down, left, right, and the space bar/ enter to shoot'
       + '\n ' , {
-      fontSize: this.game.config.width / 40,
+      fontSize: '3em',
       align: 'center',
       backgroundColor: '#000000',
       color: '#11edba',

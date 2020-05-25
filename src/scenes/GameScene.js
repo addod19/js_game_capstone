@@ -44,6 +44,7 @@ class GameScene extends Phaser.Scene {
       angularVelocity: 1,
       collideWorldBounds: true,
     });
+    // this.enemyGroup.setGravityY(100);
 
     this.enemyGroup.children.iterate((child) => {
       const cord1 = Math.floor(Math.random() * this.background.displayWidth);
