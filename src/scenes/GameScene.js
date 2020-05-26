@@ -6,7 +6,7 @@ import background from '../../assets/sci1.png';
 /* global Phaser */
 /* eslint no-undef: "error" */
 
-class GameScene extends Phaser.Scene {
+const GameScene = class extends Phaser.Scene {
   constructor() {
     super('Game');
   }

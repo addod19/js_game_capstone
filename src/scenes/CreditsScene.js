@@ -4,7 +4,7 @@ import config from '../config';
 /* global Phaser */
 /* eslint no-undef: "error" */
 
-class CreditsScene extends Phaser.Scene {
+const CreditsScene = class extends Phaser.Scene {
   constructor() {
     super('Credits');
   }

@@ -13,7 +13,7 @@ import SceneSounds from './SceneSounds';
 /* global Phaser */
 /* eslint no-undef: "error" */
 
-class Game extends Phaser.Game {
+const Game = class extends Phaser.Game {
   constructor() {
     super(config);
     const sceneSound = new SceneSounds();

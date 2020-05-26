@@ -6,7 +6,7 @@ import Button from '../Elements/Button';
 /* eslint no-undef: "error" */
 
 
-class DisplayScoreScene extends Phaser.Scene {
+const DisplayScoreScene = class extends Phaser.Scene {
   constructor() {
     super('DisplayScore');
   }

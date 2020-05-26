@@ -1,6 +1,6 @@
 /* eslint no-underscore-dangle: 0 */
 
-class SceneSounds {
+const SceneSounds = class {
   constructor() {
     /* Set up private variables */
     this._soundOn = true;

@@ -5,7 +5,7 @@ import Button from '../Elements/Button';
 /* global Phaser */
 /* eslint no-undef: "error" */
 
-class GuideScene extends Phaser.Scene {
+const GuideScene = class extends Phaser.Scene {
   constructor() {
     super('Guide');
   }

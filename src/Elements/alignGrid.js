@@ -3,7 +3,7 @@
 /* global game */
 /* eslint no-undef: "error" */
 
-class AlignGrid {
+const AlignGrid = class {
   constructor(config) {
     this.config = config;
     if (!config.scene) {

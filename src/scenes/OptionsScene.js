@@ -5,7 +5,7 @@ import Button from '../Elements/Button';
 /* global Phaser */
 /* eslint no-undef: "error" */
 
-class OptionsScene extends Phaser.Scene {
+const OptionsScene = class extends Phaser.Scene {
   constructor() {
     super('Options');
   }

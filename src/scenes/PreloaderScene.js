@@ -3,7 +3,7 @@ import 'phaser';
 /* global Phaser */
 /* eslint no-undef: "error" */
 
-class PreloaderScene extends Phaser.Scene {
+const PreloaderScene = class extends Phaser.Scene {
   constructor() {
     super({ key: 'Preloader' });
   }
