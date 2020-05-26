@@ -2,6 +2,7 @@ import 'phaser';
 
 /* global Phaser */
 /* eslint no-undef: "error" */
+/* eslint import/no-unresolved: */
 
 const Button = class extends Phaser.GameObjects.Container {
   constructor(scene, x, y, key1, key2, text, targetScene) {
