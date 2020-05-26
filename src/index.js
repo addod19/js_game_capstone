@@ -1,4 +1,4 @@
-import 'Phaser';
+import 'phaser';
 import config from './config';
 import GameScene from './scenes/GameScene';
 import GuideScene from './scenes/GuideScene';
@@ -10,7 +10,7 @@ import CreditsScene from './scenes/CreditsScene';
 import DisplayScoreScene from './scenes/DisplayScoreScene';
 import SceneSounds from './SceneSounds';
 
-/* global Phaser */
+/* global phaser */
 /* eslint no-undef: "error" */
 /* eslint import/no-unresolved: "error" */
 

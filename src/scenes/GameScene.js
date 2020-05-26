@@ -1,9 +1,9 @@
-import 'Phaser';
+import 'phaser';
 import config from '../config';
 import Button from '../Elements/Button';
 import background from '../../assets/sci1.png';
 
-/* global Phaser */
+/* global phaser */
 /* eslint no-undef: "error" */
 
 const GameScene = class extends Phaser.Scene {

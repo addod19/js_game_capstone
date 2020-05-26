@@ -1,8 +1,8 @@
-import 'Phaser';
+import 'phaser';
 import config from '../config';
 import Button from '../Elements/Button';
 
-/* global Phaser */
+/* global phaser */
 /* eslint no-undef: "error" */
 
 const GuideScene = class extends Phaser.Scene {

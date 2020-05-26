@@ -1,7 +1,7 @@
-import 'Phaser';
+import 'phaser';
 import config from '../config';
 
-/* global Phaser */
+/* global phaser */
 /* eslint no-undef: "error" */
 
 const CreditsScene = class extends Phaser.Scene {

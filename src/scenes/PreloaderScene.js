@@ -1,6 +1,6 @@
-import 'Phaser';
+import 'phaser';
 
-/* global Phaser */
+/* global phaser */
 /* eslint no-undef: "error" */
 
 const PreloaderScene = class extends Phaser.Scene {
