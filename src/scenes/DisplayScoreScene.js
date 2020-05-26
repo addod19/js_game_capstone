@@ -1,10 +1,11 @@
-import 'phaser';
+import 'Phaser';
 import config from '../config';
 import Button from '../Elements/Button';
 
 /* global Phaser */
 /* eslint no-undef: "error" */
-
+/*  eslint class-methods-use-this: ["error", { "exceptMethods": ["preload"] }]  */
+/*  eslint class-methods-use-this: ["error", { "exceptMethods": ["postScore"] }]  */
 
 const DisplayScoreScene = class extends Phaser.Scene {
   constructor() {

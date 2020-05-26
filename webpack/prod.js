@@ -3,6 +3,8 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const base = require('./base');
 
+/* eslint no-unused-vars: "error" */
+
 module.exports = merge(base, {
   mode: 'production',
   output: {

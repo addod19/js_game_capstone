@@ -1,7 +1,8 @@
-import 'phaser';
+import 'Phaser';
 
 /* global Phaser */
 /* eslint no-undef: "error" */
+/* eslint import/no-unresolved: "error" */
 
 export default {
 

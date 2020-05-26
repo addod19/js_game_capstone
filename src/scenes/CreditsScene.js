@@ -1,4 +1,4 @@
-import 'phaser';
+import 'Phaser';
 import config from '../config';
 
 /* global Phaser */

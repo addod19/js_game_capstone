@@ -1,4 +1,4 @@
-import 'phaser';
+import 'Phaser';
 import config from './config';
 import GameScene from './scenes/GameScene';
 import GuideScene from './scenes/GuideScene';
@@ -12,6 +12,7 @@ import SceneSounds from './SceneSounds';
 
 /* global Phaser */
 /* eslint no-undef: "error" */
+/* eslint import/no-unresolved: "error" */
 
 const Game = class extends Phaser.Game {
   constructor() {
