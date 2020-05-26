@@ -154,6 +154,6 @@ const DisplayScoreScene = class extends Phaser.Scene {
     fetch(url, options)
       .then(res => res.json());
   }
-}
+};
 
 export default DisplayScoreScene;

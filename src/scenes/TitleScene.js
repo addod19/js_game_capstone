@@ -47,6 +47,6 @@ const TitleScene = class extends Phaser.Scene {
       gameButton,
     );
   }
-}
+};
 
 export default TitleScene;

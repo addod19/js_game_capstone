@@ -31,6 +31,6 @@ const Button = class extends Phaser.GameObjects.Container {
 
     this.scene.add.existing(this);
   }
-}
+};
 
 export default Button;

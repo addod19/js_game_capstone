@@ -150,6 +150,6 @@ const GameScene = class extends Phaser.Scene {
   render() {
     this.game.debug.text(`Elapsed seconds: ${this.game.time.totalElapsedSeconds()}`, 32, 32);
   }
-}
+};
 
 export default GameScene;

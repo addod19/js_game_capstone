@@ -43,6 +43,6 @@ const OptionsScene = class extends Phaser.Scene {
       }
     }
   }
-}
+};
 
 export default OptionsScene;

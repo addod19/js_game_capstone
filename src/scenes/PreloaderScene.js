@@ -93,6 +93,6 @@ const PreloaderScene = class extends Phaser.Scene {
       this.scene.start('Title');
     }
   }
-}
+};
 
 export default PreloaderScene;

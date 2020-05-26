@@ -32,6 +32,6 @@ const SceneSounds = class {
   get bgMusicPlaying() {
     return this._bgMusicPlaying;
   }
-}
+};
 
 export default SceneSounds;

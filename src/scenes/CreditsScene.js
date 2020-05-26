@@ -80,6 +80,6 @@ const CreditsScene = class extends Phaser.Scene {
       }.bind(this),
     });
   }
-}
+};
 
 export default CreditsScene;

@@ -86,6 +86,6 @@ const AlignGrid = class {
       }
     }
   }
-}
+};
 
 export default AlignGrid;

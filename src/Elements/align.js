@@ -19,6 +19,6 @@ const Align = class {
     obj.x = game.config.width / 2;
     obj.y = game.config.height / 2;
   }
-}
+};
 
 export default Align;

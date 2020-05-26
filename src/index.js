@@ -29,7 +29,7 @@ const Game = class extends Phaser.Game {
     this.scene.add('DispalyScore', DisplayScoreScene);
     this.scene.start('Boot');
   }
-}
+};
 
 // let game;
 window.game = new Game();
