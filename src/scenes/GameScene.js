@@ -13,6 +13,11 @@ const GameScene = class extends Phaser.Scene {
   }
 
   preload() {
+
+    this.load.audio('sndExplode0', 'assets/laser1.wav');
+    this.load.audio('sndExplode1', 'assets/laser1.wav');
+    this.load.audio('sndLaser', 'assets/laser1.wav');
+
     
     if (typeof player !== 'undefined') {
       this.body.setVelocity(0, 0);
@@ -30,6 +35,15 @@ const GameScene = class extends Phaser.Scene {
 
   }
   create() {
+
+    this.sfx = {
+      explosions: [
+        this.sound.add('sndExplode0'),
+        this.sound.add('sndExplode1')
+      ],
+      laser: this.sound.add('sndLaser')
+    };
+
     this.player = new Player(
       this,
       this.game.config.width * 0.5,

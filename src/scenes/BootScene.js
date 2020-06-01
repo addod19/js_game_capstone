@@ -19,19 +19,6 @@ const BootScene = class extends Phaser.Scene {
     this.load.image('sprEnemy2', 'assets/content/enemyUFO.png');  
     this.load.image('sprLaserEnemy0', 'assets/content/laserRed.png');
 
-
-    this.load.audio('sndExplode0', 'assets/laser1.wav');
-    this.load.audio('sndExplode1', 'assets/laser1.wav');
-    this.load.audio('sndLaser', 'assets/laser1.wav');
-
-    this.sfx = {
-      explosions: [
-        this.sound.add('sndExplode0'),
-        this.sound.add('sndExplode1')
-      ],
-      laser: this.sound.add('sndLaser')
-    };
-
     this.load.spritesheet('sprEnemy2', 'assets/content/enemyUFO.png', {
       frameWidth: 125,
       frameHeight: 100,
