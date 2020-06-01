@@ -120,6 +120,14 @@ const GameScene = class extends Phaser.Scene {
         enemy.explode(true);
       }
     });
+
+    this.physics.add.overlap(this.player, this.enemyLasers, function(player, laser) {
+      if (!player.getData("isDead") &&
+          !laser.getData("isDead")) {
+        player.explode(false);
+        laser.destroy();
+      }
+    });
          
   }
 
