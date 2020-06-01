@@ -12,7 +12,7 @@ const BootScene = class extends Phaser.Scene {
   preload() {
     this.load.image('background', 'assets/sci1.png');
     this.load.image('shooter', 'assets/play.gif');
-    this.load.spritesheet('enemy', 'assets/enemy.png', {
+    this.load.spritesheet('sprEnemy2', 'assets/content/enemyUFO.png', {
       frameWidth: 125,
       frameHeight: 100,
     });
