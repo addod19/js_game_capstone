@@ -5,7 +5,7 @@ import Button from '../Elements/Button';
 import {Player, ChaserShip, GunShip, EnemyLaser, CarrierShip} from '../Entities';
 
 /* global phaser */
-/* eslint no-undef: "error" */
+/* eslint no-undef: 'error' */
 
 const GameScene = class extends Phaser.Scene {
   constructor() {
@@ -13,41 +13,19 @@ const GameScene = class extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('background', 'assets/content/Background/starBackground.png');
-    this.load.image("sprBg0", "content/sprBg0.png");
-    this.load.image("sprBg1", "content/sprBg1.png");
     
-    this.load.image("sprEnemy1", "assets/content/enemyShip.png");
-    
-    this.load.image("sprLaserEnemy0", "assets/content/laserRed.png");
-    this.load.image("sprLaserPlayer", "assets/content/laserGreen.png");
-
-    this.load.audio("sndExplode0", "content/sndExplode0.wav");
-    this.load.audio("sndExplode1", "content/sndExplode1.wav");
-    this.load.audio("sndLaser", "content/sndLaser.wav");
-    this.sfx = {
-      explosions: [
-        this.sound.add("sndExplode0"),
-        this.sound.add("sndExplode1")
-      ],
-      laser: this.sound.add("sndLaser")
-    };
-
-    if (typeof player !== "undefined") {
+    if (typeof player !== 'undefined') {
       this.body.setVelocity(0, 0);
 
       this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
       this.y = Phaser.Math.Clamp(this.y, 0, this.scene.game.config.height);
     }
-    
-
-    
 
     this.player = new Player(
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
-      "sprPlayer"
+      'sprPlayer'
     ); 
 
   }
@@ -56,38 +34,35 @@ const GameScene = class extends Phaser.Scene {
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
-      "sprPlayer"
+      'sprPlayer'
     );
 
-    this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-    this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-    this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-    this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+    this.keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+    this.keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+    this.keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+    this.keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
     this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.keyEnter = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
 
     this.enemies = this.add.group();
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
 
-    this.load.spritesheet("sprEnemy2", "assets/content/enemyUFO.png", {
+    this.load.spritesheet('sprEnemy2', 'assets/content/enemyUFO.png', {
       frameWidth: 16,
       frameHeight: 16
     });
 
-    this.load.spritesheet("sprPlayer", "assets/content/player.png", {
+    this.load.spritesheet('sprPlayer', 'assets/content/player.png', {
       frameWidth: 16,
       frameHeight: 16
     });
 
-    this.load.spritesheet("sprExplosion", "content/sprExplosion.png", {
+    this.load.spritesheet('sprExplosion', 'content/sprExplosion.png', {
       frameWidth: 32,
       frameHeight: 32
     });
 
-    this.load.spritesheet("sprEnemy0", "assets/enemy.png", {
-      frameWidth: 16,
-      frameHeight: 16
-    });
 
     this.time.addEvent({
       delay: 1000,
@@ -101,7 +76,7 @@ const GameScene = class extends Phaser.Scene {
             0
           );
         } else if (Phaser.Math.Between(0, 10) >= 5) {
-            if (this.getEnemiesByType("ChaserShip").length < 5) {
+            if (this.getEnemiesByType('ChaserShip').length < 5) {
 
               enemy = new ChaserShip(
                 this,
@@ -137,33 +112,32 @@ const GameScene = class extends Phaser.Scene {
         playerLaser.destroy();
       }
     });
-    
-      
+         
   }
 
   update() {
     this.player.update();
 
-    if (this.keyW.isDown) {
+    if (this.keyUp.isDown) {
       this.player.moveUp();
     }
-    else if (this.keyS.isDown) {
+    else if (this.keyDown.isDown) {
       this.player.moveDown();
     }
 
-    if (this.keyA.isDown) {
+    if (this.keyLeft.isDown) {
       this.player.moveLeft();
     }
-    else if (this.keyD.isDown) {
+    else if (this.keyRight.isDown) {
       this.player.moveRight();
     }
 
-    if (this.keySpace.isDown) {
-      this.player.setData("isShooting", true);
+    if (this.keySpace.isDown || this.keyEnter.isDown) {
+      this.player.setData('isShooting', true);
     }
     else {
-      this.player.setData("timerShootTick", this.player.getData("timerShootDelay") - 1);
-      this.player.setData("isShooting", false);
+      this.player.setData('timerShootTick', this.player.getData('timerShootDelay') - 1);
+      this.player.setData('isShooting', false);
     }
 
     for (let i = 0; i < this.enemies.getChildren().length; i++) {
@@ -187,7 +161,6 @@ const GameScene = class extends Phaser.Scene {
     }
     // Frees up processing power and memory
    
-
     for (let i = 0; i < this.enemyLasers.getChildren().length; i++) {
       let laser = this.enemyLasers.getChildren()[i];
       laser.update();
@@ -221,73 +194,12 @@ const GameScene = class extends Phaser.Scene {
     let arr = [];
     for (let i = 0; i < this.enemies.getChildren().length; i++) {
       let enemy = this.enemies.getChildren()[i];
-      if (enemy.getData("type") == type) {
+      if (enemy.getData('type') == type) {
         arr.push(enemy);
       }
     }
     return arr;
   }
-  
-
-
-  // enemyScream(shooter, enemy) {
-  //   this.sound.play('scream');
-  //   enemy.destroy();
-  //   this.endGame();
-  // }
-
-  // makeInfo() {
-  //   this.text1 = this.add.text(10, 10, 'Score Earned: ', {
-  //     fontSize: '3em',
-  //     align: 'center',
-  //     backgroundColor: '#ba2051',
-  //   });
-
-    // this.text1.setScrollFactor(0);
-  // }
-
-  // upscore() {
-  //   this.score += 1;
-  //   this.text1.setText(`Score Earned: ${this.score}`);
-  // }
-
-  // endGame() {
-  //   this.gameOver = this.add.text(config.width / 2 - 80, config.height / 2 - 150, 'GAME OVER ', {
-  //     fontSize: '3em',
-  //     align: 'center',
-  //     backgroundColor: '#000000',
-  //   });
-  //   this.result = this.add.text('');
-  //   if (this.score > 0) {
-  //     this.result = `Congrats, your score is:  ${this.score}`;
-  //   }
-  //   if (this.score <= 0) {
-  //     this.result = 'Sorry, Game Over, Try Again';
-  //   }
-
-  //   this.displayResult = this.add.text(config.width / 2 - 280, config.height / 2 - 80,
-  //     this.result, {
-  //       fontSize: '3em',
-  //       align: 'center',
-  //       backgroundColor: '#000000',
-  //     });
-
-  //   if (this.score > 0) {
-  //     this.gameScoreBtn = new Button(this, config.width / 2, config.height / 2 + 80,
-  //       'Button1', 'Button2', 'Score Board', '');
-  //     this.gameScoreBtn.setScrollFactor(0);
-  //     setTimeout(() => {
-  //       this.scene.start('DisplayScore', { level: this.score });
-  //     }, 1000);
-  //   } else {
-  //     this.quitGameBtn = new Button(this, config.width / 2, config.height / 2 + 80,
-  //       'Button1', 'Button2', 'Exit Game', 'Title');
-  //     this.quitGameBtn.setScrollFactor(0);
-  //   }
-  //   this.gameOver.setScrollFactor(0);
-  //   this.displayResult.setScrollFactor(0);
-  // }
-
  
   render() {
     this.game.debug.text(`Elapsed seconds: ${this.game.time.totalElapsedSeconds()}`, 32, 32);
