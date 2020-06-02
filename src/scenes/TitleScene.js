@@ -13,6 +13,13 @@ const TitleScene = class extends Phaser.Scene {
   }
 
   create() {
+     // Setting background to full width and height
+    let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0')
+    let scaleX = this.cameras.main.width / image.width
+    let scaleY = this.cameras.main.height / image.height
+    let scale = Math.max(scaleX, scaleY)
+    image.setScale(scale).setScrollFactor(1)
+
     this.gameTitle = this.add.text(config.width / 2 + 50, config.height / 2 - 260, 'Best Maskman? ', {
       fontSize: this.game.config.width / 20,
       align: 'center',
