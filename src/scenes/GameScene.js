@@ -2,7 +2,7 @@ import 'phaser';
 import config from '../config';
 import Button from '../Elements/Button';
 // import Player from '../Player';
-import {Player, ChaserShip, GunShip, EnemyLaser, CarrierShip} from '../Entities';
+import {Player, ChaserShip, GunShip, EnemyLaser, CarrierShip, ScrollingBackground} from '../Entities';
 
 /* global phaser */
 /* eslint no-undef: 'error' */
@@ -35,6 +35,12 @@ const GameScene = class extends Phaser.Scene {
 
   }
   create() {
+    // Setting background to full width and height
+    let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0')
+    let scaleX = this.cameras.main.width / image.width
+    let scaleY = this.cameras.main.height / image.height
+    let scale = Math.max(scaleX, scaleY)
+    image.setScale(scale).setScrollFactor(1)
 
     this.sfx = {
       explosions: [
@@ -43,6 +49,12 @@ const GameScene = class extends Phaser.Scene {
       ],
       laser: this.sound.add('sndLaser')
     };
+
+    this.backgrounds = [];
+    for (var i = 0; i < 5; i++) { // create five scrolling backgrounds
+      var bg = new ScrollingBackground(this, "sprBg0", i * 10);
+      this.backgrounds.push(bg);
+    }
 
     this.player = new Player(
       this,

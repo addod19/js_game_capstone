@@ -10,7 +10,8 @@ const BootScene = class extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('background', 'assets/sci1.png');
+    this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
+    this.load.image('sprBg1', 'assets/content/Background/starBig.png');
 
     this.load.image('sprLaserPlayer', 'assets/content/laserGreen.png');
     this.load.image('sprPlayer', 'assets/content/player.png');
