@@ -95,6 +95,17 @@ const Player = class extends Entity {
             }
         }
     }
+
+    onDestroy() {
+      this.scene.time.addEvent({ // go to game over scene
+        delay: 1000,
+        callback: function() {
+          this.scene.scene.start("SceneGameOver");
+        },
+        callbackScope: this,
+        loop: false
+      });
+    }
     
 }
 
