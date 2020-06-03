@@ -11,7 +11,7 @@ const GuideScene = class extends Phaser.Scene {
   }
 
   create() {
-    this.gameTitle = this.add.text(config.width / 3 - 150, config.height / 2 - 100, 'Best Maskman ', {
+    this.gameTitle = this.add.text(config.width / 3 - 10, config.height / 2 - 100, 'Best Maskman ', {
       fontSize: this.game.config.width / 15,
       align: 'center',
       backgroundColor: '#000000',
@@ -22,12 +22,14 @@ const GuideScene = class extends Phaser.Scene {
     this.gameTitle = this.add.text(config.width / 2 - 600, config.height / 2, 'When '
       + 'the game starts, the enemy starts attacking the mask man.'
       + '\n For the mask man to survive, he needs to kill as many'
-      + '\n enemy as possible. The score keeps increasing for every kill'
-      + '\n . If the mask man fails to kill enemy and enemy escapes'
-      + '\n the game ends. Use arrow keys in the keyboard to'
+      + '\n enemies as possible. The score keeps increasing for every kill'
+      + '\n . If the mask man fails to kill the enemies and the enemy kills'
+      + '\n the maskman, he looses a life for every laser hit.Until all given lifes get used up'
+      + '\n Use arrow keys on the keyboard to'
       + ' \n move up, down, left, right, and the space bar/ enter to shoot'
       + '\n ', {
       fontSize: '3em',
+      fontFamily: 'sans-serif',
       align: 'center',
       backgroundColor: '#000000',
       color: '#11edba',
