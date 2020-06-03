@@ -2,7 +2,7 @@ import 'phaser';
 import config from '../config';
 import Button from '../Elements/Button';
 // import Player from '../Player';
-import {Player, ChaserShip, GunShip, EnemyLaser, CarrierShip} from '../Entities';
+import {Player, ChaserShip, GunShip, EnemyLaser, CarrierShip, ScrollingBackground} from '../Entities';
 
 /* global phaser */
 /* eslint no-undef: 'error' */
@@ -18,6 +18,9 @@ const GameScene = class extends Phaser.Scene {
     this.load.audio('sndExplode1', 'assets/laser1.wav');
     this.load.audio('sndLaser', 'assets/laser1.wav');
 
+    this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
+    this.load.image('sprBg1', 'assets/content/Background/starSmall.png');
+
     
     if (typeof player !== 'undefined') {
       this.body.setVelocity(0, 0);
@@ -31,7 +34,13 @@ const GameScene = class extends Phaser.Scene {
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
       'sprPlayer'
-    ); 
+    );
+
+    this.backgrounds = [];
+    for (let i = 0; i < 5; i++) {
+      let bg = new ScrollingBackground(this, 'sprBg0', i * 10);
+      this.backgrounds.push(bg);
+    }
 
   }
   create() {
@@ -121,7 +130,6 @@ const GameScene = class extends Phaser.Scene {
         if (enemy.onDestroy !== undefined) {
           enemy.onDestroy();
         }
-      
         enemy.explode(true);
         playerLaser.destroy();
       }
@@ -142,7 +150,6 @@ const GameScene = class extends Phaser.Scene {
         laser.destroy();
       }
     });
-         
   }
 
   update() {
@@ -154,14 +161,12 @@ const GameScene = class extends Phaser.Scene {
     else if (this.keyDown.isDown) {
       this.player.moveDown();
     }
-
     if (this.keyLeft.isDown) {
       this.player.moveLeft();
     }
     else if (this.keyRight.isDown) {
       this.player.moveRight();
     }
-
     if (this.keySpace.isDown || this.keyEnter.isDown) {
       this.player.setData('isShooting', true);
     }
@@ -169,7 +174,6 @@ const GameScene = class extends Phaser.Scene {
       this.player.setData('timerShootTick', this.player.getData('timerShootDelay') - 1);
       this.player.setData('isShooting', false);
     }
-
     for (let i = 0; i < this.enemies.getChildren().length; i++) {
       let enemy = this.enemies.getChildren()[i];
 
@@ -183,14 +187,11 @@ const GameScene = class extends Phaser.Scene {
           if (enemy.onDestroy !== undefined) {
             enemy.onDestroy();
           }
-    
           enemy.destroy();
         }
-    
       }
     }
     // Frees up processing power and memory
-   
     for (let i = 0; i < this.enemyLasers.getChildren().length; i++) {
       let laser = this.enemyLasers.getChildren()[i];
       laser.update();
@@ -204,7 +205,6 @@ const GameScene = class extends Phaser.Scene {
         }
       }
     }
-
     for (let i = 0; i < this.playerLasers.getChildren().length; i++) {
       let laser = this.playerLasers.getChildren()[i];
       laser.update();
