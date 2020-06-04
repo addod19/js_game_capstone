@@ -97,25 +97,25 @@ const Player = class extends Entity {
       }
 
       // this code keeps player from moving after hit by laser/explode
-      if (!this.player.getData('isDead')) {
-        this.player.update();
-        if (this.keyUp.isDown()) {
-          this.player.moveUp();
-        } else if (this.keyDown.isDown()) {
-          this.player.moveDown();
-        }
-        if (this.keyLeft.isDown()) {
-          this.player.moveLeft();
-        } else if ( this.keyRight.isDown()) {
-          this.palyer.moveRight();
-        }
-        if (this.keySpace.isDown() || this.keyEnter.isDown()) {
-          this.player.setData('isShooting', true);
-        } else {
-          this.player.setData('timerShootTick', this.player.setData('timerShootDelay') - 1);
-          this.player.setData('isShooting', false);
-        }
-      }
+      // if (!this.player.getData('isDead')) {
+      //   this.player.update();
+      //   if (this.keyUp.isDown()) {
+      //     this.player.moveUp();
+      //   } else if (this.keyDown.isDown()) {
+      //     this.player.moveDown();
+      //   }
+      //   if (this.keyLeft.isDown()) {
+      //     this.player.moveLeft();
+      //   } else if ( this.keyRight.isDown()) {
+      //     this.palyer.moveRight();
+      //   }
+      //   if (this.keySpace.isDown() || this.keyEnter.isDown()) {
+      //     this.player.setData('isShooting', true);
+      //   } else {
+      //     this.player.setData('timerShootTick', this.player.setData('timerShootDelay') - 1);
+      //     this.player.setData('isShooting', false);
+      //   }
+      // }
     }
     
 }
@@ -217,12 +217,12 @@ const ChaserShip = class extends Entity {
         this.angle += 5;
       }
 
-      if (this.layers.getChildren()[0].y > 0) {
-        for (let i = 0; i < this.layers.getChildren().length; i++) {
-          let layer = this.layers.getChildren()[i];
-          layer.y = ( -layer.displayHeight) + (layer.displayHeight * i);
-        }
-      }
+      // if (this.layers.getChildren()[0].y > 0) {
+      //   for (let i = 0; i < this.layers.getChildren().length; i++) {
+      //     let layer = this.layers.getChildren()[i];
+      //     layer.y = ( -layer.displayHeight) + (layer.displayHeight * i);
+      //   }
+      // }
     }
   }
 

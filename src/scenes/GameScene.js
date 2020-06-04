@@ -45,6 +45,9 @@ const GameScene = class extends Phaser.Scene {
   }
   create() {
 
+    let bg = this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
+    bg.displayHeight = this.sys.game.height;
+
     this.sfx = {
       explosions: [
         this.sound.add('sndExplode0'),

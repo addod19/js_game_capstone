@@ -17,6 +17,8 @@ const DisplayScoreScene = class extends Phaser.Scene {
   }
 
   preload() {
+    let score = 0;
+    let scoreText;
   }
 
   create() {
