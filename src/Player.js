@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import Entity from './Entities';
 
 const Player = class extends Entity {
     constructor(secene, x, y, key) {
