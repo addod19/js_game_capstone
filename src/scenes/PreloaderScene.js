@@ -95,13 +95,6 @@ const PreloaderScene = class extends Phaser.Scene {
     // this.load.audio("sndBtnOver", "content/sndBtnOver.wav");
     // this.load.audio("sndBtnDown", "content/sndBtnDown.wav");
 
-    // this.sfx = {
-    //   explosions: [
-    //     this.sound.add("sndExplode0"),
-    //     this.sound.add("sndExplode1")
-    //   ],
-    //   laser: this.sound.add("sndLaser")
-    // };
   }
 
   ready() {

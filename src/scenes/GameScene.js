@@ -6,7 +6,6 @@ import {ChaserShip, GunShip} from '../Entities/Enemy1';
 import CarrierShip from '../Entities/Enemy2';
 import ScrollingBackground from '../Entities/ScrollingBackground';
 
-// import {Player, ChaserShip, GunShip, EnemyLaser, CarrierShip, ScrollingBackground} from '../Entities';
 
 /* global phaser */
 /* eslint no-undef: 'error' */
@@ -21,6 +20,7 @@ const GameScene = class extends Phaser.Scene {
     this.load.audio('sndExplode0', 'assets/laser1.wav');
     this.load.audio('sndExplode1', 'assets/laser1.wav');
     this.load.audio('sndLaser', 'assets/laser1.wav');
+
 
     this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
     this.load.image('sprBg1', 'assets/content/Background/starSmall.png');
@@ -66,6 +66,34 @@ const GameScene = class extends Phaser.Scene {
       this.game.config.height * 0.5,
       'sprPlayer'
     );
+
+    this.lifes = this.add.image(20, 20, 'sprLifes').setScale(1.6);
+
+    this.title2 = this.add.text(40, 15, `X ${this.player.getData('health')}`, {
+      fontFamily: 'monospace',
+      fontSize: 20,
+      fontStyle: 'bold',
+      color: '#7d12c9',
+      align: 'center',
+    });
+    this.yourScore = this.add.text(40, 600, 'Score: 0', {
+      fontFamily: 'monospace',
+      fontSize: 20,
+      fontStyle: 'bold',
+      color: '#7d12c9',
+    });
+
+    this.player.setScale(2);
+
+    this.sfx = {
+      explosions: [
+        this.sound.add("sndExplode0"),
+        this.sound.add("sndExplode1")
+      ],
+      attacked: this.sound.add('loseLife',{ volume: 3}),
+      laser: this.sound.add("sndLaser")
+    };
+
 
     this.keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     this.keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
@@ -131,56 +159,80 @@ const GameScene = class extends Phaser.Scene {
       loop: true    
     });
 
-    this.physics.add.collider(this.playerLasers, this.enemies, function (playerLaser, enemy) {
+    this.physics.add.collider(this.playerLasers, this.enemies, (playerLaser, enemy) => {
       // destroy enemy if hit by laser
       if (enemy) {
         if (enemy.onDestroy !== undefined) {
           enemy.onDestroy();
         }
         enemy.explode(true);
+        enemy.body = null;
         playerLaser.destroy();
+        this.player.updateScore(enemy);
+        this.yourScore.setText(`Score: this.player.getData('score)`);
       }
     });
 
-    this.physics.add.overlap(this.player, this.enemies, function(player, enemy) {
+    this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
       if (!player.getData("isDead") &&
           !enemy.getData("isDead")) {
-        player.explode(false);
-        enemy.explode(true);
+        // player.explode(false);
+        // enemy.explode(true);
+        if (player.getData('health') > 0) {
+          enemy.explode(true);
+          player.updateLifes();
+          this.title2.setText(`X ${this.player.getData('health')}`);
+        } else {
+          player.explode(false);
+          player.onDestroy();
+          enemy.explode(true);
+        }
       }
     });
 
-    this.physics.add.overlap(this.player, this.enemyLasers, function(player, laser) {
+    this.physics.add.overlap(this.player, this.enemyLasers, (player, laser) => {
       if (!player.getData("isDead") &&
           !laser.getData("isDead")) {
-        player.explode(false);
-        laser.destroy();
+        // player.explode(false);
+        // laser.destroy();
+        if (player.getData('health') > 0) {
+          enemy.explode(true);
+          player.updateLifes();
+          this.title2.setText(`X ${this.player.getData('health')}`);
+        } else {
+          player.explode(false);
+          player.onDestroy();
+          enemy.explode(true);
+        }
       }
     });
   }
 
   update() {
-    this.player.update();
+    if (!this.player.getData('isDead')) {
+      this.player.update();
 
-    if (this.keyUp.isDown) {
-      this.player.moveUp();
+      if (this.keyUp.isDown) {
+        this.player.moveUp();
+      }
+      else if (this.keyDown.isDown) {
+        this.player.moveDown();
+      }
+      if (this.keyLeft.isDown) {
+        this.player.moveLeft();
+      }
+      else if (this.keyRight.isDown) {
+        this.player.moveRight();
+      }
+      if (this.keySpace.isDown || this.keyEnter.isDown) {
+        this.player.setData('isShooting', true);
+      }
+      else {
+        this.player.setData('timerShootTick', this.player.getData('timerShootDelay') - 1);
+        this.player.setData('isShooting', false);
+      }
     }
-    else if (this.keyDown.isDown) {
-      this.player.moveDown();
-    }
-    if (this.keyLeft.isDown) {
-      this.player.moveLeft();
-    }
-    else if (this.keyRight.isDown) {
-      this.player.moveRight();
-    }
-    if (this.keySpace.isDown || this.keyEnter.isDown) {
-      this.player.setData('isShooting', true);
-    }
-    else {
-      this.player.setData('timerShootTick', this.player.getData('timerShootDelay') - 1);
-      this.player.setData('isShooting', false);
-    }
+    
     for (let i = 0; i < this.enemies.getChildren().length; i++) {
       let enemy = this.enemies.getChildren()[i];
 
@@ -230,7 +282,7 @@ const GameScene = class extends Phaser.Scene {
   getEnemiesByType(type) {
     let arr = [];
     for (let i = 0; i < this.enemies.getChildren().length; i++) {
-      let enemy = this.enemies.getChildren()[i];
+      const enemy = this.enemies.getChildren()[i];
       if (enemy.getData('type') == type) {
         arr.push(enemy);
       }

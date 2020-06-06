@@ -1,4 +1,4 @@
-import 'jest-canvas-mock';
+// import 'jest-canvas-mock';
 import Player from '../src/Entities/Player';
 import Entity from '../src/Entities/Entity';
 
