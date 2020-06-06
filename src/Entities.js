@@ -1,50 +1,50 @@
 import 'phaser';
 
-const Entity = class extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, key, type) {
-        super(scene, x, y, key);
+// const Entity = class extends Phaser.GameObjects.Sprite{
+//     constructor(scene, x, y, key, type) {
+//         super(scene, x, y, key);
 
-        this.scene = scene;
-        this.scene.add.existing(this);
-        this.scene.physics.world.enableBody(this, 0);
-        this.setData('type', type);
-        this.setData('isDead', false);
-    }
+//         this.scene = scene;
+//         this.scene.add.existing(this);
+//         this.scene.physics.world.enableBody(this, 0);
+//         this.setData('type', type);
+//         this.setData('isDead', false);
+//     }
 
-    explode(canDestroy) {
-        if (!this.getData("isDead")) {
-            // Set the texture to the explosion image, then play the animation
-            this.setTexture("sprExplosion");  // this refers to the same animation key we used when we added this.anims.create previously
-            this.play("sprExplosion"); // play the animation
+//     explode(canDestroy) {
+//         if (!this.getData("isDead")) {
+//             // Set the texture to the explosion image, then play the animation
+//             this.setTexture("sprExplosion");  // this refers to the same animation key we used when we added this.anims.create previously
+//             this.play("sprExplosion"); // play the animation
       
-            // pick a random explosion sound within the array we defined in this.sfx in SceneMain
-            this.scene.sfx.explosions[Phaser.Math.Between(0, this.scene.sfx.explosions.length - 1)].play();
+//             // pick a random explosion sound within the array we defined in this.sfx in SceneMain
+//             this.scene.sfx.explosions[Phaser.Math.Between(0, this.scene.sfx.explosions.length - 1)].play();
       
-            if (this.shootTimer !== undefined) {
-              if (this.shootTimer) {
-                this.shootTimer.remove(false);
-              }
-            }
+//             if (this.shootTimer !== undefined) {
+//               if (this.shootTimer) {
+//                 this.shootTimer.remove(false);
+//               }
+//             }
       
-            this.setAngle(0);
-            this.body.setVelocity(0, 0);
+//             this.setAngle(0);
+//             this.body.setVelocity(0, 0);
       
-            this.on('animationcomplete', function() {
+//             this.on('animationcomplete', function() {
       
-              if (canDestroy) {
-                this.destroy();
-              }
-              else {
-                this.setVisible(false);
-              }
+//               if (canDestroy) {
+//                 this.destroy();
+//               }
+//               else {
+//                 this.setVisible(false);
+//               }
       
-            }, this);
+//             }, this);
       
-            this.setData("isDead", true);
-        }
-    }
+//             this.setData("isDead", true);
+//         }
+//     }
 
-}
+// }
 
 
 const Player = class extends Entity {
@@ -120,49 +120,49 @@ const Player = class extends Entity {
     
 }
 
-const PlayerLaser = class extends Entity {
-    constructor(scene, x, y) {
-        super(scene, x, y, 'sprLaserPlayer');
-        this.body.velocity.y = -200;
-    }
-}
+// const PlayerLaser = class extends Entity {
+//     constructor(scene, x, y) {
+//         super(scene, x, y, 'sprLaserPlayer');
+//         this.body.velocity.y = -200;
+//     }
+// }
 
-const EnemyLaser = class extends Entity {
-    constructor(scene, x, y) {
-      super(scene, x, y, 'sprLaserEnemy0');
-      this.body.velocity.y = 200;
-    }
-}
+// const EnemyLaser = class extends Entity {
+//     constructor(scene, x, y) {
+//       super(scene, x, y, 'sprLaserEnemy0');
+//       this.body.velocity.y = 200;
+//     }
+// }
 
-const ChaserShip = class extends Entity {
-  constructor(scene, x, y) {
-    super(scene, x, y, 'sprEnemy1', 'ChaserShip');
-    this.body.velocity.y = Phaser.Math.Between(50, 100);
+// const ChaserShip = class extends Entity {
+//   constructor(scene, x, y) {
+//     super(scene, x, y, 'sprEnemy1', 'ChaserShip');
+//     this.body.velocity.y = Phaser.Math.Between(50, 100);
 
-    this.shootTimer = this.scene.time.addEvent({
-      delay: 1000,
-      callback: function() {
-        let laser = new EnemyLaser(
-          this.scene,
-          this.x,
-          this.y
-        );
-        laser.setScale(this.scaleX);
-        this.scene.enemyLasers.add(laser);
-      },
-      callbackScope: this,
-      loop: true
-      });
-    }
+//     this.shootTimer = this.scene.time.addEvent({
+//       delay: 1000,
+//       callback: function() {
+//         let laser = new EnemyLaser(
+//           this.scene,
+//           this.x,
+//           this.y
+//         );
+//         laser.setScale(this.scaleX);
+//         this.scene.enemyLasers.add(laser);
+//       },
+//       callbackScope: this,
+//       loop: true
+//       });
+//     }
 
-    onDestroy() {
-      if (this.shootTimer !== undefined) {
-        if (this.shootTimer) {
-          this.shootTimer.remove(false);
-        }
-      }
-    }
-  }
+//     onDestroy() {
+//       if (this.shootTimer !== undefined) {
+//         if (this.shootTimer) {
+//           this.shootTimer.remove(false);
+//         }
+//       }
+//     }
+//   }
   
   const GunShip = class extends Entity {
     constructor(scene, x, y) {
@@ -172,59 +172,59 @@ const ChaserShip = class extends Entity {
     }
   }
   
-  const CarrierShip = class extends Entity {
-    constructor(scene, x, y) {
-      super(scene, x, y, 'sprEnemy2', 'CarrierShip');
-      this.body.velocity.y = Phaser.Math.Between(50, 100);
-      this.play('sprEnemy2');
+  // const CarrierShip = class extends Entity {
+  //   constructor(scene, x, y) {
+  //     super(scene, x, y, 'sprEnemy2', 'CarrierShip');
+  //     this.body.velocity.y = Phaser.Math.Between(50, 100);
+  //     this.play('sprEnemy2');
 
-      this.states = {
-        MOVE_DOWN: 'MOVE_DOWN',
-        CHASE: 'CHASE'
-      };
-      this.state = this.states.MOVE_DOWN;
-    }
+  //     this.states = {
+  //       MOVE_DOWN: 'MOVE_DOWN',
+  //       CHASE: 'CHASE'
+  //     };
+  //     this.state = this.states.MOVE_DOWN;
+  //   }
 
-    update() {
-      if (!this.getData('isDead') && this.scene.player) {
-        if (Phaser.Math.Distance.Between(
-          this.x,
-          this.y,
-          this.scene.player.x,
-          this.scene.player.y
-        ) < 320) {
+  //   update() {
+  //     if (!this.getData('isDead') && this.scene.player) {
+  //       if (Phaser.Math.Distance.Between(
+  //         this.x,
+  //         this.y,
+  //         this.scene.player.x,
+  //         this.scene.player.y
+  //       ) < 320) {
       
-          this.state = this.states.CHASE;
-        }
+  //         this.state = this.states.CHASE;
+  //       }
       
-        if (this.state == this.states.CHASE) {
-          let dx = this.scene.player.x - this.x;
-          let dy = this.scene.player.y - this.y;
+  //       if (this.state == this.states.CHASE) {
+  //         let dx = this.scene.player.x - this.x;
+  //         let dy = this.scene.player.y - this.y;
       
-          let angle = Math.atan2(dy, dx);
+  //         let angle = Math.atan2(dy, dx);
       
-          let speed = 100;
-          this.body.setVelocity(
-            Math.cos(angle) * speed,
-            Math.sin(angle) * speed
-          );
-        }
-      }
-      if (this.x < this.scene.player.x) {
-        this.angle -= 5;
-      }
-      else {
-        this.angle += 5;
-      }
+  //         let speed = 100;
+  //         this.body.setVelocity(
+  //           Math.cos(angle) * speed,
+  //           Math.sin(angle) * speed
+  //         );
+  //       }
+  //     }
+  //     if (this.x < this.scene.player.x) {
+  //       this.angle -= 5;
+  //     }
+  //     else {
+  //       this.angle += 5;
+  //     }
 
-      // if (this.layers.getChildren()[0].y > 0) {
-      //   for (let i = 0; i < this.layers.getChildren().length; i++) {
-      //     let layer = this.layers.getChildren()[i];
-      //     layer.y = ( -layer.displayHeight) + (layer.displayHeight * i);
-      //   }
-      // }
-    }
-  }
+  //     // if (this.layers.getChildren()[0].y > 0) {
+  //     //   for (let i = 0; i < this.layers.getChildren().length; i++) {
+  //     //     let layer = this.layers.getChildren()[i];
+  //     //     layer.y = ( -layer.displayHeight) + (layer.displayHeight * i);
+  //     //   }
+  //     // }
+  //   }
+  // }
 
   const ScrollingBackground = class {
     constructor(scene, key, velocityY) {

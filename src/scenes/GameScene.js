@@ -1,8 +1,12 @@
 import 'phaser';
 import config from '../config';
 import Button from '../Elements/Button';
-// import Player from '../Player';
-import {Player, ChaserShip, GunShip, EnemyLaser, CarrierShip, ScrollingBackground} from '../Entities';
+import Player from '../Entities/Player';
+import {ChaserShip, GunShip} from '../Entities/Enemy1';
+import CarrierShip from '../Entities/Enemy2';
+import ScrollingBackground from '../Entities/ScrollingBackground';
+
+// import {Player, ChaserShip, GunShip, EnemyLaser, CarrierShip, ScrollingBackground} from '../Entities';
 
 /* global phaser */
 /* eslint no-undef: 'error' */
