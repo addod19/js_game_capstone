@@ -19,12 +19,16 @@ const DisplayScoreScene = class extends Phaser.Scene {
   preload() {
     let score = 0;
     let scoreText;
+
+    this.load.html('nameform', '../src/Elements/form');
   }
 
   create() {
     this.user = '';
     this.scoreList = [];
     this.user = this.inputName();
+
+    let element = this.add.dom(400, 0).createFromCache('nameform'); 
   }
 
   inputName() {
