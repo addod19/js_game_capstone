@@ -5,6 +5,7 @@ import Player from '../Entities/Player';
 import {ChaserShip, GunShip} from '../Entities/Enemy1';
 import CarrierShip from '../Entities/Enemy2';
 import ScrollingBackground from '../Entities/ScrollingBackground';
+import { getScores, postScore } from '../Entities/apiData';
 
 
 /* global phaser */
@@ -60,27 +61,27 @@ const GameScene = class extends Phaser.Scene {
       laser: this.sound.add('sndLaser')
     };
 
-    this.player = new Player(
-      this,
-      this.game.config.width * 0.5,
-      this.game.config.height * 0.5,
-      'sprPlayer'
-    );
+    // this.player = new Player(
+    //   this,
+    //   this.game.config.width * 0.5,
+    //   this.game.config.height * 0.5,
+    //   'sprPlayer'
+    // );
 
     this.lifes = this.add.image(20, 20, 'sprLifes').setScale(1.6);
 
-    this.title2 = this.add.text(40, 15, `X ${this.player.getData('health')}`, {
+    // this.title2 = this.add.text(40, 15, `X ${this.player.getScores('health')}`, {
+    //   fontFamily: 'monospace',
+    //   fontSize: 20,
+    //   fontStyle: 'bold',
+    //   color: '#7d12c9',
+    //   align: 'center',
+    // });
+    this.playerScore = this.add.text(40, 600, 'Score: 0', {
       fontFamily: 'monospace',
-      fontSize: 20,
+      fontSize: 30,
       fontStyle: 'bold',
-      color: '#7d12c9',
-      align: 'center',
-    });
-    this.yourScore = this.add.text(40, 600, 'Score: 0', {
-      fontFamily: 'monospace',
-      fontSize: 20,
-      fontStyle: 'bold',
-      color: '#7d12c9',
+      color: '#000000',
     });
 
     this.player.setScale(2);
@@ -168,8 +169,8 @@ const GameScene = class extends Phaser.Scene {
         enemy.explode(true);
         enemy.body = null;
         playerLaser.destroy();
-        this.player.updateScore(enemy);
-        this.yourScore.setText(`Score: this.player.getData('score)`);
+        // this.player.updateScore(enemy);
+        this.playerScore.setText(`Score: this.player.getScore('score)`);
       }
     });
 
@@ -289,10 +290,7 @@ const GameScene = class extends Phaser.Scene {
     }
     return arr;
   }
- 
-  render() {
-    this.game.debug.text(`Elapsed seconds: ${this.game.time.totalElapsedSeconds()}`, 32, 32);
-  }
+
 };
 
 export default GameScene;
