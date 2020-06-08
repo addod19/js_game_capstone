@@ -77,7 +77,7 @@ const GameScene = class extends Phaser.Scene {
     //   color: '#7d12c9',
     //   align: 'center',
     // });
-    this.playerScore = this.add.text(40, 600, 'Score: 0', {
+    this.playerScore = this.add.text(40, 60, 'Score: 0', {
       fontFamily: 'monospace',
       fontSize: 30,
       fontStyle: 'bold',
