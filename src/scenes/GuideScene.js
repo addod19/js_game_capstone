@@ -3,7 +3,6 @@ import Phaser from 'phaser';
 import config from '../config';
 import Button from '../Elements/Button';
 
-/* global phaser */
 /* eslint no-undef: "error" */
 
 const GuideScene = class extends Phaser.Scene {
@@ -12,10 +11,10 @@ const GuideScene = class extends Phaser.Scene {
   }
 
   create() {
-    let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0');
-    let scaleX = this.cameras.main.width / image.width;
-    let scaleY = this.cameras.main.height / image.height;
-    let scale = Math.max(scaleX, scaleY);
+    const image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0');
+    const scaleX = this.cameras.main.width / image.width;
+    const scaleY = this.cameras.main.height / image.height;
+    const scale = Math.max(scaleX, scaleY);
     image.setScale(scale).setScrollFactor(1);
 
     this.gameTitle = this.add.text(config.width / 3 - 10, config.height / 2 - 100, 'Best Maskman ', {
@@ -40,7 +39,6 @@ const GuideScene = class extends Phaser.Scene {
       align: 'center',
       backgroundColor: '#000000',
       color: '#11edba',
-      fontFamily: 'open-sans',
     });
 
     this.gameButton = new Button(this, config.width / 2 - -400, config.height / 2 + 100, 'Button1', 'Button2', 'Play', 'Game');

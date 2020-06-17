@@ -1,6 +1,6 @@
-import 'phaser';
+import Phaser from 'phaser';
 
-import Entity from '../Entities/Entity';
+import Entity from './Entity';
 
 const CarrierShip = class extends Entity {
   constructor(scene, x, y) {
@@ -10,7 +10,7 @@ const CarrierShip = class extends Entity {
 
     this.states = {
       MOVE_DOWN: 'MOVE_DOWN',
-      CHASE: 'CHASE'
+      CHASE: 'CHASE',
     };
     this.state = this.states.MOVE_DOWN;
     // this.play('sprEnemy2');
@@ -22,31 +22,28 @@ const CarrierShip = class extends Entity {
         this.x,
         this.y,
         this.scene.player.x,
-        this.scene.player.y
+        this.scene.player.y,
       ) < 320) {
-      
-      this.state = this.states.CHASE;
+        this.state = this.states.CHASE;
       }
-      
-      if (this.state == this.states.CHASE) {
-        let dx = this.scene.player.x - this.x;
-        let dy = this.scene.player.y - this.y;
-      
-        let angle = Math.atan2(dy, dx);
-      
-        let speed = 100;
+
+      if (this.state === this.states.CHASE) {
+        const dx = this.scene.player.x - this.x;
+        const dy = this.scene.player.y - this.y;
+
+        const angle = Math.atan2(dy, dx);
+
+        const speed = 100;
         this.body.setVelocity(
           Math.cos(angle) * speed,
-          Math.sin(angle) * speed
+          Math.sin(angle) * speed,
         );
       }
     }
     if (this.x < this.scene.player.x) {
       this.angle -= 5;
-    }
-    else {
+    } else {
       this.angle += 5;
-      
     }
     // if (this.layers.getChildren()[0].y > 0) {
     //   for (let i = 0; i < this.layers.getChildren().length; i++) {
@@ -55,6 +52,6 @@ const CarrierShip = class extends Entity {
     //   }
     // }
   }
-}
+};
 
 export default CarrierShip;

@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 
-/* global phaser */
 /* eslint no-undef: "error" */
 
 const PreloaderScene = class extends Phaser.Scene {
@@ -84,7 +83,6 @@ const PreloaderScene = class extends Phaser.Scene {
     this.load.audio('bgMusic', ['assets/battleMus.mp3']);
     this.load.audio('scream', ['assets/osn2u.mp3']);
     this.load.audio('shoot', ['assets/laser1.wav']);
-
   }
 
   ready() {

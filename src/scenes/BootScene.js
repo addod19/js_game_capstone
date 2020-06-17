@@ -1,6 +1,5 @@
-import 'phaser';
+import Phaser from 'phaser';
 
-/* global phaser */
 /* eslint no-undef: 'error' */
 /* eslint import/no-unresolved: 'error' */
 
@@ -12,7 +11,7 @@ const BootScene = class extends Phaser.Scene {
   preload() {
     this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
     this.load.image('sprBg1', 'assets/content/Background/starSmall.png');
-  
+
     this.load.image('sprLaserPlayer', 'assets/content/laserGreen.png');
     this.load.image('sprPlayer', 'assets/content/player.png');
 
@@ -20,9 +19,9 @@ const BootScene = class extends Phaser.Scene {
     this.load.image('unChecked', 'assets/btn.png');
 
     this.load.image('sprLifes', 'assets/content/life.png');
-    
+
     this.load.image('sprEnemy1', 'assets/content/enemyShip.png');
-    this.load.image('sprEnemy2', 'assets/content/enemyUFO.png');  
+    this.load.image('sprEnemy2', 'assets/content/enemyUFO.png');
     this.load.image('sprLaserEnemy0', 'assets/content/laserRed.png');
 
     this.load.spritesheet('sprEnemy2', 'assets/content/enemyUFO.png', {

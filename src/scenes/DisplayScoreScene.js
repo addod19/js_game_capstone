@@ -1,6 +1,5 @@
-import 'phaser';
-import config from '../config';
-import { getScores } from '../Entities/apiData';
+import Phaser from 'phaser';
+
 
 /* global phaser */
 /* eslint no-undef: "error" */
@@ -17,7 +16,7 @@ const DisplayScoreScene = class extends Phaser.Scene {
   }
 
   preload() {
-    let score = 0;
+    const score = 0;
     let scoreText;
 
     this.load.html('nameform', '../Entities/nameForm.html');
@@ -27,7 +26,7 @@ const DisplayScoreScene = class extends Phaser.Scene {
     this.user = '';
     this.scoreList = [];
 
-    let element = this.add.dom(400, 0).createFromCache('nameform'); 
+    const element = this.add.dom(400, 0).createFromCache('nameform');
   }
 
   displayData(array) {
@@ -56,9 +55,7 @@ const DisplayScoreScene = class extends Phaser.Scene {
 
       listBody.innerHTML = listContent;
     });
-  };
-
-
+  }
 };
 
 export default DisplayScoreScene;

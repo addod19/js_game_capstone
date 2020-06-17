@@ -1,14 +1,14 @@
-import 'phaser';
-import Entity from '../Entities/Entity';
-import PlayerLaser from '../Entities/PlayerLaser';
+import Phaser from 'phaser';
+import Entity from './Entity';
+import PlayerLaser from './PlayerLaser';
 
 const Player = class extends Entity {
   constructor(scene, x, y, key) {
     super(scene, x, y, key, 'Player');
 
-    this.setData("isShooting", false);
-    this.setData("timerShootDelay", 10);
-    this.setData("timerShootTick", this.getData("timerShootDelay") - 1);
+    this.setData('isShooting', false);
+    this.setData('timerShootDelay', 10);
+    this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
 
     this.setData('speed', 200);
     this.play('sprPlayer');
@@ -65,7 +65,6 @@ const Player = class extends Entity {
       loop: false,
     });
   }
-    
-}
+};
 
 export default Player;

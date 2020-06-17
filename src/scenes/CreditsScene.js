@@ -1,7 +1,6 @@
-import 'phaser';
+import Phaser from 'phaser';
 import config from '../config';
 
-/* global phaser */
 /* eslint no-undef: "error" */
 
 const CreditsScene = class extends Phaser.Scene {
@@ -10,10 +9,10 @@ const CreditsScene = class extends Phaser.Scene {
   }
 
   create() {
-    let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0');
-    let scaleX = this.cameras.main.width / image.width;
-    let scaleY = this.cameras.main.height / image.height;
-    let scale = Math.max(scaleX, scaleY);
+    const image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0');
+    const scaleX = this.cameras.main.width / image.width;
+    const scaleY = this.cameras.main.height / image.height;
+    const scale = Math.max(scaleX, scaleY);
     image.setScale(scale).setScrollFactor(1);
 
     this.creditsMicroverseText = this.add.text(0, 0, 'Special credits to Microverse', { fontSize: '32px', fill: '#c41425' });
