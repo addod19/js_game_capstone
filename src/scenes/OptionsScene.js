@@ -12,6 +12,12 @@ const OptionsScene = class extends Phaser.Scene {
   }
 
   create() {
+    let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0');
+    let scaleX = this.cameras.main.width / image.width;
+    let scaleY = this.cameras.main.height / image.height;
+    let scale = Math.max(scaleX, scaleY);
+    image.setScale(scale).setScrollFactor(1);
+      
     this.sceneSound = this.sys.game.globals.sceneSound;
 
     this.text = this.add.text(300, 50, 'Options', { fontSize: 40 });

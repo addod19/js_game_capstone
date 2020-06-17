@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { postScore, getScores } from '../Entities/apiData';
+import Button from '../Elements/Button';
 
 
 class GameOverScene extends Phaser.Scene {
@@ -72,65 +72,67 @@ class GameOverScene extends Phaser.Scene {
     });
 
 
-    this.btnRestart.setInteractive();
-    this.btnRestart.setScale(0.8);
-    this.btnSubmit.setInteractive();
-    this.btnSubmit.setScale(0.8);
+    // this.btnRestart.setInteractive();
+    // this.btnRestart.setScale(0.8);
+    // this.btnSubmit.setInteractive();
+    // this.btnSubmit.setScale(0.8);
 
 
-    const pointOver = button => {
-      button.on('pointerover', () => {
-        button.setTexture('BtnPlayHover');
-      }, this);
-    };
+    // const pointOver = button => {
+    //   button.on('pointerover', () => {
+    //     button.setTexture('BtnPlayHover');
+    //   }, this);
+    // };
 
 
-    const pointOut = button => {
-      button.on('pointerout', () => {
-        button.setTexture('BtnPlay');
-      });
-    };
+    // const pointOut = button => {
+    //   button.on('pointerout', () => {
+    //     button.setTexture('BtnPlay');
+    //   });
+    // };
 
-    const pointDown = button => {
-      button.on('pointerdown', () => {
-        button.setTexture('BtnPlayDown');
-      }, this);
-    };
+    // const pointDown = button => {
+    //   button.on('pointerdown', () => {
+    //     button.setTexture('BtnPlayDown');
+    //   }, this);
+    // };
 
-    const pointUp = button => {
-      button.on('pointerup', () => {
-        button.setTexture('BtnPlay');
-      }, this);
-    };
+    // const pointUp = button => {
+    //   button.on('pointerup', () => {
+    //     button.setTexture('BtnPlay');
+    //   }, this);
+    // };
 
-    const goToScene = (button, scene) => {
-      button.on('pointerup', () => {
-        button.setTexture('BtnPlay');
-        this.scene.start(scene);
-        this.gameOver.destroy();
-      }, this);
-    };
+    // const goToScene = (button, scene) => {
+    //   button.on('pointerup', () => {
+    //     button.setTexture('BtnPlay');
+    //     this.scene.start(scene);
+    //     this.gameOver.destroy();
+    //   }, this);
+    // };
 
-    pointOver(this.btnRestart);
-    pointOver(this.btnSubmit);
-    pointOut(this.btnRestart);
-    pointOut(this.btnSubmit);
-    pointDown(this.btnRestart);
-    pointDown(this.btnSubmit);
-    pointUp(this.btnRestart);
-    pointUp(this.btnSubmit);
-    goToScene(this.btnRestart, 'GameScene');
-    goToScene(this.btnSubmit, 'DisplayScoreScene');
+    // pointOver(this.btnRestart);
+    // pointOver(this.btnSubmit);
+    // pointOut(this.btnRestart);
+    // pointOut(this.btnSubmit);
+    // pointDown(this.btnRestart);
+    // pointDown(this.btnSubmit);
+    // pointUp(this.btnRestart);
+    // pointUp(this.btnSubmit);
+    // goToScene(this.btnRestart, 'GameScene');
+    // goToScene(this.btnSubmit, 'DisplayScoreScene');
 
 
-    this.btnSubmit.on('pointerup', () => {
-      const inputName = document.getElementById('nameInput').value;
-      postScore(inputName);
-    });
+    // this.btnSubmit.on('pointerup', () => {
+    //   const inputName = document.getElementById('nameInput').value;
+    //   postScore(inputName);
+    // });
 
-    this.btnSubmit.on('pointerup', () => {
-      getScores();
-    });
+    // this.btnSubmit.on('pointerup', () => {
+    //   getScores();
+    // });
+
+    this.gameButton = new Button(this, config.width / 2, config.height / 2 + 100, 'Button1', 'Button2', 'Restart', 'Game');
   }
 }
 

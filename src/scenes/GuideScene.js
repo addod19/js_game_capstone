@@ -12,6 +12,12 @@ const GuideScene = class extends Phaser.Scene {
   }
 
   create() {
+    let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0');
+    let scaleX = this.cameras.main.width / image.width;
+    let scaleY = this.cameras.main.height / image.height;
+    let scale = Math.max(scaleX, scaleY);
+    image.setScale(scale).setScrollFactor(1);
+
     this.gameTitle = this.add.text(config.width / 3 - 10, config.height / 2 - 100, 'Best Maskman ', {
       fontSize: this.game.config.width / 15,
       align: 'center',
@@ -37,7 +43,7 @@ const GuideScene = class extends Phaser.Scene {
       fontFamily: 'open-sans',
     });
 
-    this.gameButton = new Button(this, config.width / 2 - -300, config.height / 2 + 100, 'Button1', 'Button2', 'Play', 'Game');
+    this.gameButton = new Button(this, config.width / 2 - -400, config.height / 2 + 100, 'Button1', 'Button2', 'Play', 'Game');
   }
 };
 

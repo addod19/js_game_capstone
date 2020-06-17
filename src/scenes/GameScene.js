@@ -49,11 +49,11 @@ const GameScene = class extends Phaser.Scene {
   }
   create() {
     // Setting background to full width and height
-    let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0')
-    let scaleX = this.cameras.main.width / image.width
-    let scaleY = this.cameras.main.height / image.height
-    let scale = Math.max(scaleX, scaleY)
-    image.setScale(scale).setScrollFactor(1)
+    // let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0');
+    // let scaleX = this.cameras.main.width / image.width;
+    // let scaleY = this.cameras.main.height / image.height;
+    // let scale = Math.max(scaleX, scaleY);
+    // image.setScale(scale).setScrollFactor(1);
 
     let bg = this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
     bg.displayHeight = this.sys.game.height;
