@@ -1,4 +1,5 @@
-import 'phaser';
+import Phaser from 'phaser';
+
 import config from '../config';
 import Button from '../Elements/Button';
 
@@ -14,11 +15,11 @@ const TitleScene = class extends Phaser.Scene {
 
   create() {
      // Setting background to full width and height
-    let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0')
-    let scaleX = this.cameras.main.width / image.width
-    let scaleY = this.cameras.main.height / image.height
-    let scale = Math.max(scaleX, scaleY)
-    image.setScale(scale).setScrollFactor(1)
+    let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0');
+    let scaleX = this.cameras.main.width / image.width;
+    let scaleY = this.cameras.main.height / image.height;
+    let scale = Math.max(scaleX, scaleY);
+    image.setScale(scale).setScrollFactor(1);
 
     this.gameTitle = this.add.text(config.width / 2 + 50, config.height / 2 - 260, 'Best Maskman? ', {
       fontSize: this.game.config.width / 20,
@@ -30,7 +31,7 @@ const TitleScene = class extends Phaser.Scene {
 
     this.optionsButton = new Button(this, config.width / 2 - 200, config.height / 2 - 60, 'Button1', 'Button2', 'Options', 'Options');
 
-    this.creditsButton = new Button(this, config.width / 2, config.height / 2 - 60, 'Button1', 'Button2', 'Credits', 'Credits');
+    this.creditsButton = new Button(this, config.width / 2, config.height / 2 - 60, 'Button1', 'Button2', 'Credits', 'GameOver');
 
     this.sceneSound = this.sys.game.globals.sceneSound;
     if (this.sceneSound.musicOn === true && this.sceneSound.bgMusicPlaying === false) {

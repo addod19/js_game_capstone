@@ -1,6 +1,6 @@
 import 'phaser';
 import config from '../config';
-import Button from '../Elements/Button';
+import { getScores } from '../Entities/apiData';
 
 /* global phaser */
 /* eslint no-undef: "error" */
@@ -17,144 +17,48 @@ const DisplayScoreScene = class extends Phaser.Scene {
   }
 
   preload() {
+    let score = 0;
+    let scoreText;
+
+    this.load.html('nameform', '../Entities/nameForm.html');
   }
 
   create() {
     this.user = '';
     this.scoreList = [];
-    this.user = this.inputName();
+
+    let element = this.add.dom(400, 0).createFromCache('nameform'); 
   }
 
-  inputName() {
-    this.userName = this.add.text(config.width / 2 - 270, config.height / 2 - 78,
-      'Enter your Name, Gamer : ', {
-        fontSize: '4em',
-        align: 'center',
-        color: '#7d12c9',
-        marginTop: '2em',
-      });
-    this.userName.setScrollFactor(0);
+  displayData(array) {
+    const table = document.createrowSment('table');
+    table.innerHTML = `<thead>
+                      <tr>
+                      <th> <span> RANKING </span> </th>
+                      <th> <span> NAME </span> </th>
+                      <th> <span> SCORE </span> </th>
+                      </tr>
+                      </thead>
+                      <tbody id='table-body'></tbody>`;
+    table.className = 'table-scores';
+
+    this.add.dom(140, 200, table);
+
+    let listContent = '';
+
+    array.forEach((rowS, index) => {
+      const listBody = document.getrowSmentById('table-body');
+      listContent += `<tr>
+                        <th scope='row'>${index + 1} </th>
+                        <td>${rowS.user}</td>
+                        <td>${rowS.score}</td>                   
+                      </tr>`;
+
+      listBody.innerHTML = listContent;
+    });
+  };
 
 
-    return this.user;
-  }
-
-  displayLeaderboard() {
-    this.postScore(this.user, this.score);
-    this.userName.setText('');
-
-    this.scoreLine1 = this.add.text(config.width / 2 - 50, config.height / 2 - 150,
-      'High Scores', {
-        fontSize: '4em',
-        align: 'center',
-        color: '#7d12c9',
-      });
-    this.scoreLine1.setScrollFactor(0);
-    setTimeout(() => {
-      this.getScores();
-    }, 1000);
-    this.quitGameBtn = new Button(this, config.width / 2, config.height / 2 + 80,
-      'Button1', 'Button2', 'Exit Game', 'Title');
-    this.quitGameBtn.setScrollFactor(0);
-  }
-
-  async getScores() {
-    const topScores = [];
-    fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Zl4d7IVkemOTTVg2fUdz/scores/')
-      .then(response => response.json())
-      .then(scores => {
-        const { result } = scores;
-        result.forEach((row) => {
-          const { user, score } = row;
-          topScores.push([user, score]);
-        });
-        topScores.sort((x, y) => {
-          if (x[1] === y[1]) {
-            return 0;
-          }
-          return (y[1] - x[1]);
-        });
-        this.displayPlayersScore(topScores);
-      });
-    return topScores;
-  }
-
-  displayPlayersScore(data) {
-    let [user, score] = data[0];
-    this.scoreLine2 = this.add.text(config.width / 2 - 80, config.height / 2 - 120,
-      `${user}   -   ${score}`, {
-        fontSize: '4em',
-        align: 'center',
-        color: '#7d12c9',
-      });
-    this.scoreLine2.setScrollFactor(0);
-
-    [user, score] = data;
-
-    this.scoreLine3 = this.add.text(config.width / 2 - 80, config.height / 2 - 100,
-      `${user}   -   ${score}`, {
-        fontSize: '4em',
-        align: 'center',
-        color: '#7d12c9',
-      });
-    this.scoreLine3.setScrollFactor(0);
-
-    [user, score] = data;
-    this.scoreLine4 = this.add.text(config.width / 2 - 80, config.height / 2 - 80,
-      `${user}   -   ${score}`, {
-        fontSize: '4em',
-        align: 'center',
-        color: '#7d12c9',
-      });
-    this.scoreLine4.setScrollFactor(0);
-
-    [user, score] = data;
-    this.scoreLine5 = this.add.text(config.width / 2 - 80, config.height / 2 - 60,
-      `${user}   -   ${score}`, {
-        fontSize: '4em',
-        align: 'center',
-        color: '#7d12c9',
-      });
-    this.scoreLine5.setScrollFactor(0);
-
-    [user, score] = data;
-    this.scoreLine6 = this.add.text(config.width / 2 - 80, config.height / 2 - 40,
-      `${user}   -   ${score}`, {
-        fontSize: '4em',
-        align: 'center',
-        color: '#7d12c9',
-      });
-    this.scoreLine6.setScrollFactor(0);
-
-    this.scoreLine6 = this.add.text(config.width / 2 - 180, config.height / 2,
-      `This game has been played ${data.length - 50} times`, {
-        fontSize: '4em',
-        align: 'center',
-        color: '#7d12c9',
-      });
-    this.scoreLine6.setScrollFactor(0);
-  }
-
-
-  async postScore(u, s) {
-    const url = '';
-    const userScore = {
-      user: u,
-      score: s,
-    };
-    // request options
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(userScore),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-
-    // send POST request
-    fetch(url, options)
-      .then(res => res.json());
-  }
 };
 
 export default DisplayScoreScene;

@@ -10,6 +10,12 @@ const CreditsScene = class extends Phaser.Scene {
   }
 
   create() {
+    let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0');
+    let scaleX = this.cameras.main.width / image.width;
+    let scaleY = this.cameras.main.height / image.height;
+    let scale = Math.max(scaleX, scaleY);
+    image.setScale(scale).setScrollFactor(1);
+
     this.creditsMicroverseText = this.add.text(0, 0, 'Special credits to Microverse', { fontSize: '32px', fill: '#c41425' });
     this.createdByText = this.add.text(0, 0, 'Created By:Daniel Larbi Addo', { fontSize: '26px', fill: '#edc811' });
     this.emailText = this.add.text(0, 0, 'addodaniellarbi@gmail.com', { fontSize: '18px', fill: '#32a852' });

@@ -8,6 +8,7 @@ import TitleScene from './scenes/TitleScene';
 import OptionsScene from './scenes/OptionsScene';
 import CreditsScene from './scenes/CreditsScene';
 import DisplayScoreScene from './scenes/DisplayScoreScene';
+import GameOverScene from './scenes/GameOverScene';
 import SceneSounds from './SceneSounds';
 
 /* global phaser */
@@ -28,6 +29,7 @@ const Game = class extends Phaser.Game {
     this.scene.add('Game', GameScene);
     this.scene.add('Guide', GuideScene);
     this.scene.add('DispalyScore', DisplayScoreScene);
+    this.scene.add('GameOver', GameOverScene);
     this.scene.start('Boot');
   }
 };
