@@ -32,11 +32,11 @@ const TitleScene = class extends Phaser.Scene {
 
     this.creditsButton = new Button(this, config.width / 2, config.height / 2 - 60, 'Button1', 'Button2', 'Credits', 'GameOver');
 
-    this.sceneSound = this.sys.game.globals.sceneSound;
-    if (this.sceneSound.musicOn === true && this.sceneSound.bgMusicPlaying === false) {
+    this.model = this.sys.game.globals.model;
+    if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
       this.bgMusic = this.sound.add('bgMusic', { volume: 0.5, loop: true });
 
-      this.sceneSound.bgMusicPlaying = true;
+      this.model.bgMusicPlaying = true;
       this.sys.game.globals.bgMusic = this.bgMusic;
     }
   }

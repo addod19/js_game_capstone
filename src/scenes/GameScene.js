@@ -52,6 +52,7 @@ const GameScene = class extends Phaser.Scene {
     // let scaleY = this.cameras.main.height / image.height;
     // let scale = Math.max(scaleX, scaleY);
     // image.setScale(scale).setScrollFactor(1);
+    // this.updateScore();
 
     const bg = this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
     bg.displayHeight = this.sys.game.height;
@@ -81,7 +82,7 @@ const GameScene = class extends Phaser.Scene {
         this.sound.add('sndExplode0'),
         this.sound.add('sndExplode1'),
       ],
-      attacked: this.sound.add('loseLife', { volume: 3 }),
+      // attacked: this.sound.add('loseLife', { volume: 3 }),
       laser: this.sound.add('sndLaser'),
     };
 
@@ -158,10 +159,15 @@ const GameScene = class extends Phaser.Scene {
         enemy.explode(true);
         enemy.body = null;
         playerLaser.destroy();
-        // this.player.updateScore(enemy);
-        this.playerScore.setText('Score: this.player.getScore(\'score)');
+        this.updateScore();
+        this.playerScore.setText(`Score: ${this.sys.game.globals.model.score}`, {
+          backgroundColor: '#fff'
+        });
       }
     });
+
+    
+
 
     this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
       if (!player.getData('isDead')
@@ -196,6 +202,12 @@ const GameScene = class extends Phaser.Scene {
         }
       }
     });
+  }
+
+  updateScore() {
+    let { score } = this.sys.game.globals.model;
+    score += 10;
+    this.sys.game.globals.model.score = score;
   }
 
   update() {
@@ -264,6 +276,8 @@ const GameScene = class extends Phaser.Scene {
       }
     }
   }
+
+  
 
   getEnemiesByType(type) {
     const arr = [];

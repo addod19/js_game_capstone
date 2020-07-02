@@ -17,7 +17,7 @@ const OptionsScene = class extends Phaser.Scene {
     const scale = Math.max(scaleX, scaleY);
     image.setScale(scale).setScrollFactor(1);
 
-    this.sceneSound = this.sys.game.globals.sceneSound;
+    this.model = this.sys.game.globals.model;
 
     this.text = this.add.text(300, 50, 'Options', { fontSize: 40 });
     this.musicButton = this.add.image(200, 100, 'checkedBox');
@@ -26,7 +26,7 @@ const OptionsScene = class extends Phaser.Scene {
     this.musicButton.setInteractive();
 
     this.musicButton.on('pointerdown', () => {
-      this.sceneSound.musicOn = !this.sceneSound.musicOn;
+      this.model.musicOn = !this.model.musicOn;
       this.updateAudio();
     });
 
@@ -37,15 +37,15 @@ const OptionsScene = class extends Phaser.Scene {
   }
 
   updateAudio() {
-    if (this.sceneSound.musicOn === false) {
+    if (this.model.musicOn === false) {
       this.musicButton.setTexture('box');
       this.sys.game.globals.bgMusic.stop();
-      this.sceneSound.bgMusicPlaying = false;
+      this.model.bgMusicPlaying = false;
     } else {
       this.musicButton.setTexture('checkedBox');
-      if (this.sceneSound.bgMusicPlaying === false) {
+      if (this.model.bgMusicPlaying === false) {
         this.sys.game.globals.bgMusic.play();
-        this.sceneSound.bgMusicPlaying = true;
+        this.model.bgMusicPlaying = true;
       }
     }
   }

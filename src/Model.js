@@ -1,11 +1,13 @@
 /* eslint no-underscore-dangle: 0 */
 
-const SceneSounds = class {
+const Model = class {
   constructor() {
     /* Set up private variables */
     this._soundOn = true;
     this._musicOn = true;
     this._bgMusicPlaying = false;
+    this._user = '';
+    this.score = 0;
   }
 
   /* Setter and Getter methods */
@@ -32,6 +34,26 @@ const SceneSounds = class {
   get bgMusicPlaying() {
     return this._bgMusicPlaying;
   }
+
+  set userName(value) {
+    this._user = value;
+  }
+
+  get userName() {
+    return this._user;
+  }
+
+  set score(value) {
+    this._score = value;
+  }
+
+  get score() {
+    return this._score;
+  }
+
+  resetScore() {
+    this._score = 0;
+  }
 };
 
-export default SceneSounds;
+export default Model;

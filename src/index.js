@@ -8,7 +8,7 @@ import OptionsScene from './scenes/OptionsScene';
 import CreditsScene from './scenes/CreditsScene';
 import DisplayScoreScene from './scenes/DisplayScoreScene';
 import GameOverScene from './scenes/GameOverScene';
-import SceneSounds from './SceneSounds';
+import Model from './Model';
 
 /* global phaser */
 /* eslint no-undef: "error" */
@@ -17,9 +17,9 @@ import SceneSounds from './SceneSounds';
 const Game = class extends Phaser.Game {
   constructor() {
     super(config);
-    const sceneSound = new SceneSounds();
+    const model = new Model();
 
-    this.globals = { sceneSound, bgMusic: null };
+    this.globals = { model, bgMusic: null };
     this.scene.add('Boot', BootScene);
     this.scene.add('Preloader', PreloaderScene);
     this.scene.add('Title', TitleScene);

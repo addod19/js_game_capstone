@@ -1,8 +1,8 @@
 // import 'jest-canvas-mock';
-import Player from '../src/Entities/Player';
-import Entity from '../src/Entities/Entity';
+import Player from './Player';
+import Entity from './Entity';
 
-jest.mock('../src/Entities/Entity');
+jest.mock('./Entity');
 
 beforeEach(() => {
   Entity.mockClear();
