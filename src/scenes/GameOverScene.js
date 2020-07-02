@@ -27,6 +27,8 @@ class GameOverScene extends Phaser.Scene {
     const scale = Math.max(scaleX, scaleY);
     image.setScale(scale).setScrollFactor(1);
 
+    const user = this.sys.game.globals.model.userName;
+
     this.gameOver = this.sound.add('gameOverMusic', { volume: 0.6 });
     this.gameOver.play();
     this.add.image(this.game.config.width * 0.5, 240, 'sprImg').setScale(0.35);
@@ -66,7 +68,7 @@ class GameOverScene extends Phaser.Scene {
 
     // this.add.dom(this.game.config.width * 0.78, 420, inputName);
 
-    this.score = this.add.text(this.game.config.width * 0.3, 360, `Your Score is: ${this.sys.game.globals.model.score}`, {
+    this.score = this.add.text(this.game.config.width * 0.3, 360, `Hello ${user}, your Score is: ${this.sys.game.globals.model.score}`, {
       fontFamily: 'monospace',
       fontSize: 20,
       fontStyle: 'bold',

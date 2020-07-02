@@ -30,7 +30,7 @@ const TitleScene = class extends Phaser.Scene {
 
     this.optionsButton = new Button(this, config.width / 2 - 200, config.height / 2 - 60, 'Button1', 'Button2', 'Options', 'Options');
 
-    this.creditsButton = new Button(this, config.width / 2, config.height / 2 - 60, 'Button1', 'Button2', 'Credits', 'GameOver');
+    this.creditsButton = new Button(this, config.width / 2, config.height / 2 - 60, 'Button1', 'Button2', 'Credits', 'Credits');
 
     this.model = this.sys.game.globals.model;
     if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {

@@ -24,7 +24,7 @@ const GuideScene = class extends Phaser.Scene {
       fontFamily: 'open-sans',
     });
 
-    this.input = this.add.dom(650, 100, 'input', {
+    const input = this.add.dom(650, 100, 'input', {
       type: 'text',
       name: 'nameField',
       fontSize: '32px',
@@ -67,32 +67,20 @@ const GuideScene = class extends Phaser.Scene {
       color: '#11edba',
     });
 
-    // this.gameButton = new Button(this, config.width / 2 - -400, config.height / 2 + 100, 
-    //   'Button1', 'Button2', 'Play', 'Game');
+    const Button1 = new Button(this, config.width / 2 - -400, config.height / 2 + 100);
 
-    const style = 'width: 490px; height: 77px; border: none;font: 32px Georgia; color: #fff;';
+    const style = 'width: 490px; height: 77px; border: none;font: 32px Mono-space; color: #fff;';
     const gameButton = this.add.dom(900, 160, 'Button1', style, 'Play');
 
+    console.log(gameButton);
+    // console.log(input.node.value);
     gameButton.on('click', () => {
       if (this.input.node.value) {
         this.model = this.sys.game.globals.model;
-          this.model.userName = input.node.value;
-          this.scene.start('Game');
+        this.model.userName = input.node.value;
+        this.scene.start('Game');
       }
-    })  
-  
-
-    // const style = 'background: url(assets/ui/button_small.png); width: 490px; height: 77px; border: none; font: 32px Georgia; color: #fff;';
-    // const btn = this.add.dom(390, 550, 'button', style, 'Play Now');
-    // btn.addListener('click');  
-  
-    // btn.on('click', () => {
-      //   if (input.node.value) {
-      //     this.model = this.sys.game.globals.model;
-      //     this.model.userName = input.node.value;
-      //     this.scene.start('Title');
-      //   }
-      // });
+    });
   }
 };
 

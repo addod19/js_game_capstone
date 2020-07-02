@@ -8,51 +8,46 @@ const DisplayScoreScene = class extends Phaser.Scene {
     super('DisplayScore');
   }
 
-  init(data) {
-    this.score = data.level;
-  }
-
-  preload() {
-    const score = 0;
-    let scoreText;
-
-    this.load.html('nameform', '../Entities/nameForm.html');
-  }
-
   create() {
-    this.user = '';
-    this.scoreList = [];
 
-    const element = this.add.dom(400, 0).createFromCache('nameform');
-  }
+    this.add.text(400, 200, 'Best 5 Marksmen', {
+      color: 'white',
+      fontSize: '32px ',
+      fontFamily: 'san-serif',
+    }).setOrigin(0.5, 0.5);
 
-  displayData(array) {
-    const table = document.createrowSment('table');
-    table.innerHTML = `<thead>
-                      <tr>
-                      <th> <span> RANKING </span> </th>
-                      <th> <span> NAME </span> </th>
-                      <th> <span> SCORE </span> </th>
-                      </tr>
-                      </thead>
-                      <tbody id='table-body'></tbody>`;
-    table.className = 'table-scores';
+    getScores().then((scores) => {
+      const scoreStyle = {
+        color: 'white',
+        fontSize: '18px ',
+      };
+      scores.sort((x, y) => y.score - x.score);
+      const space = 30;
+      for (let i = 0; i < 5; i += 1) {
+        if (scores[i] !== undefined) {
+          this.add
+            .text(
+              400,
+              240 + space * i,
+              `${i + 1}. ${scores[i].user} ${scores[i].score}`,
+              scoreStyle,
+            )
+            .setOrigin(0.5, 0.5);
+        }
+      }
+    });
 
-    this.add.dom(140, 200, table);
+  const style = 'width: 450px; height: 80px; border: none; font: 30px sans-serif; color: #fff;';
+    const btn = this.add.dom(390, 490, 'button', style, 'Guide');
+    btn.addListener('click');
 
-    let listContent = '';
-
-    array.forEach((rowS, index) => {
-      const listBody = document.getrowSmentById('table-body');
-      listContent += `<tr>
-                        <th scope='row'>${index + 1} </th>
-                        <td>${rowS.user}</td>
-                        <td>${rowS.score}</td>                   
-                      </tr>`;
-
-      listBody.innerHTML = listContent;
+    btn.on('click', () => {
+      this.model = this.sys.game.globals.model;
+      this.model.score = 0;
+      this.scene.start('Guide');
     });
   }
+
 };
 
 export default DisplayScoreScene;
