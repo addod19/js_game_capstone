@@ -30,11 +30,6 @@ const Player = class extends Entity {
     this.body.velocity.x = this.getData('speed');
   }
 
-  updateLifes() {
-    this.setData('health', this.getData('health') - 1);
-    this.scene.sfx.attacked.play();
-  }
-
   update() {
     this.body.setVelocity(0, 0);
 
@@ -59,7 +54,7 @@ const Player = class extends Entity {
     this.scene.time.addEvent({
       delay: 1000,
       callback() {
-        this.scene.scene.start('GameOverScene');
+        this.scene.scene.start('GameOver');
       },
       callbackScope: this,
       loop: false,

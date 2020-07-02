@@ -46,14 +46,6 @@ const GameScene = class extends Phaser.Scene {
   }
 
   create() {
-    // Setting background to full width and height
-    // let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0');
-    // let scaleX = this.cameras.main.width / image.width;
-    // let scaleY = this.cameras.main.height / image.height;
-    // let scale = Math.max(scaleX, scaleY);
-    // image.setScale(scale).setScrollFactor(1);
-    // this.updateScore();
-
     const bg = this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
     bg.displayHeight = this.sys.game.height;
 
@@ -160,9 +152,7 @@ const GameScene = class extends Phaser.Scene {
         enemy.body = null;
         playerLaser.destroy();
         this.updateScore();
-        this.playerScore.setText(`Score: ${this.sys.game.globals.model.score}`, {
-          backgroundColor: '#fff'
-        });
+        this.playerScore.setText(`Score: ${this.sys.game.globals.model.score}`);
       }
     });
 
@@ -172,8 +162,6 @@ const GameScene = class extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
       if (!player.getData('isDead')
           && !enemy.getData('isDead')) {
-        // player.explode(false);
-        // enemy.explode(true);
         if (player.getData('health') > 0) {
           enemy.explode(true);
           player.updateLifes();
@@ -189,16 +177,14 @@ const GameScene = class extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.enemyLasers, (player, laser) => {
       if (!player.getData('isDead')
           && !laser.getData('isDead')) {
-        // player.explode(false);
-        // laser.destroy();
         if (player.getData('health') > 0) {
           enemy.explode(true);
-          player.updateLifes();
-          this.title2.setText(`X ${this.player.getData('health')}`);
+          console.log('player not dead?');
         } else {
           player.explode(false);
           player.onDestroy();
           enemy.explode(true);
+          console.log('player dead?');
         }
       }
     });

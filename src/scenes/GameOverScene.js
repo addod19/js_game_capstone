@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 
 import config from '../config';
 import Button from '../Elements/Button';
+import postScores from '../Entities/apiData';
 
 
 class GameOverScene extends Phaser.Scene {
@@ -9,6 +10,10 @@ class GameOverScene extends Phaser.Scene {
     super({ key: 'GameOver' });
   }
 
+  init() {
+    this.model = this.sys.game.globals.model;
+  }
+  
   preload() {
     this.load.image('gameOverTitle', 'assets/btn2.png');
     this.load.image('sprImg', 'assets/sci1.png');
@@ -61,13 +66,15 @@ class GameOverScene extends Phaser.Scene {
 
     this.add.dom(this.game.config.width * 0.78, 420, inputName);
 
-    this.score = this.add.text(this.game.config.width * 0.3, 360, `Your Score is: ${localStorage.getItem('score')}`, {
+    this.score = this.add.text(this.game.config.width * 0.3, 360, `Your Score is: ${this.sys.game.globals.model.score}`, {
       fontFamily: 'monospace',
       fontSize: 20,
       fontStyle: 'bold',
       color: '#ffffff',
       align: 'center',
     });
+
+    postScores(this.model.userName, this.model.score);
 
     this.gameButton = new Button(this, config.width / 2, config.height / 2 + 100, 'Button1', 'Button2', 'Restart', 'Game');
   }
