@@ -46,6 +46,7 @@ const GameScene = class extends Phaser.Scene {
   }
 
   create() {
+
     const bg = this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
     bg.displayHeight = this.sys.game.height;
 
@@ -179,12 +180,10 @@ const GameScene = class extends Phaser.Scene {
           && !laser.getData('isDead')) {
         if (player.getData('health') > 0) {
           enemy.explode(true);
-          console.log('player not dead?');
         } else {
           player.explode(false);
           player.onDestroy();
-          enemy.explode(true);
-          console.log('player dead?');
+          enemy.explode(false);
         }
       }
     });

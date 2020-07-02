@@ -17,6 +17,32 @@ const GuideScene = class extends Phaser.Scene {
     const scale = Math.max(scaleX, scaleY);
     image.setScale(scale).setScrollFactor(1);
 
+    this.intro = this.add.text(config.width / 3 - 10, config.height / 5 - 100, 'Please enter your name ', {
+      fontSize: this.game.config.width / 25,
+      align: 'center',
+      color: '#fff',
+      fontFamily: 'open-sans',
+    });
+
+    this.input = this.add.dom(650, 100, 'input', {
+      type: 'text',
+      name: 'nameField',
+      fontSize: '32px',
+      bacjgroundColor: '#fff',
+    });
+
+    // const style = 'background: url(assets/ui/button_small.png); width: 490px; height: 77px; border: none; font: 32px Georgia; color: #fff;';
+    // const btn = this.add.dom(390, 550, 'button', style, 'Play Now');
+    // btn.addListener('click');
+
+    // btn.on('click', () => {
+    //   if (input.node.value) {
+    //     this.model = this.sys.game.globals.model;
+    //     this.model.userName = input.node.value;
+    //     this.scene.start('Title');
+    //   }
+    // });
+
     this.gameTitle = this.add.text(config.width / 3 - 10, config.height / 2 - 100, 'Best Maskman ', {
       fontSize: this.game.config.width / 15,
       align: 'center',
@@ -41,7 +67,32 @@ const GuideScene = class extends Phaser.Scene {
       color: '#11edba',
     });
 
-    this.gameButton = new Button(this, config.width / 2 - -400, config.height / 2 + 100, 'Button1', 'Button2', 'Play', 'Game');
+    // this.gameButton = new Button(this, config.width / 2 - -400, config.height / 2 + 100, 
+    //   'Button1', 'Button2', 'Play', 'Game');
+
+    const style = 'width: 490px; height: 77px; border: none;font: 32px Georgia; color: #fff;';
+    const gameButton = this.add.dom(900, 160, 'Button1', style, 'Play');
+
+    gameButton.on('click', () => {
+      if (this.input.node.value) {
+        this.model = this.sys.game.globals.model;
+          this.model.userName = input.node.value;
+          this.scene.start('Game');
+      }
+    })  
+  
+
+    // const style = 'background: url(assets/ui/button_small.png); width: 490px; height: 77px; border: none; font: 32px Georgia; color: #fff;';
+    // const btn = this.add.dom(390, 550, 'button', style, 'Play Now');
+    // btn.addListener('click');  
+  
+    // btn.on('click', () => {
+      //   if (input.node.value) {
+      //     this.model = this.sys.game.globals.model;
+      //     this.model.userName = input.node.value;
+      //     this.scene.start('Title');
+      //   }
+      // });
   }
 };
 

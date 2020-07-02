@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 import config from '../config';
 import Button from '../Elements/Button';
-import postScores from '../Entities/apiData';
+import { postScore } from '../Entities/apiData';
 
 
 class GameOverScene extends Phaser.Scene {
@@ -61,10 +61,10 @@ class GameOverScene extends Phaser.Scene {
       align: 'center',
     });
 
-    const inputName = document.createElement('div');
-    inputName.innerHTML = '<input type ="text" id= "nameInput" class="nameInput" placeholder= "Enter your name"></input>';
+    // const inputName = document.createElement('div');
+    // inputName.innerHTML = '<input type ="text" id= "nameInput" class="nameInput" placeholder= "Enter your name"></input>';
 
-    this.add.dom(this.game.config.width * 0.78, 420, inputName);
+    // this.add.dom(this.game.config.width * 0.78, 420, inputName);
 
     this.score = this.add.text(this.game.config.width * 0.3, 360, `Your Score is: ${this.sys.game.globals.model.score}`, {
       fontFamily: 'monospace',
@@ -74,7 +74,7 @@ class GameOverScene extends Phaser.Scene {
       align: 'center',
     });
 
-    postScores(this.model.userName, this.model.score);
+    postScore(...this.model.userName, ...this.model.score);
 
     this.gameButton = new Button(this, config.width / 2, config.height / 2 + 100, 'Button1', 'Button2', 'Restart', 'Game');
   }

@@ -17,5 +17,8 @@ export default {
       debug: false,
     },
   },
+  dom: {
+    createContainer: true,
+  }
 
 };
