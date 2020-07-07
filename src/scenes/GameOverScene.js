@@ -4,7 +4,6 @@ import config from '../config';
 import Button from '../Elements/Button';
 import { postScore } from '../Entities/apiData';
 
-
 class GameOverScene extends Phaser.Scene {
   constructor() {
     super({ key: 'GameOver' });
@@ -13,11 +12,11 @@ class GameOverScene extends Phaser.Scene {
   init() {
     this.model = this.sys.game.globals.model;
   }
-  
+
   preload() {
     this.load.image('gameOverTitle', 'assets/btn2.png');
     this.load.image('sprImg', 'assets/sci1.png');
-    this.load.audio('gameOverMusic', 'assets/battleMus.mp3');
+    // this.load.audio('gameOverMusic', 'assets/battleMus.mp3');
   }
 
   create() {
@@ -28,7 +27,7 @@ class GameOverScene extends Phaser.Scene {
     image.setScale(scale).setScrollFactor(1);
 
     const user = this.sys.game.globals.model.userName;
-
+    console.log(user);
     this.gameOver = this.sound.add('gameOverMusic', { volume: 0.6 });
     this.gameOver.play();
     this.add.image(this.game.config.width * 0.5, 240, 'sprImg').setScale(0.35);
@@ -46,7 +45,6 @@ class GameOverScene extends Phaser.Scene {
       'BtnPlay',
     );
 
-
     this.submitTitle = this.add.text(this.game.config.width * 0.41, this.game.config.height * 0.725, 'SUBMIT', {
       fontFamily: 'sans-serif',
       fontSize: 25,
@@ -63,11 +61,6 @@ class GameOverScene extends Phaser.Scene {
       align: 'center',
     });
 
-    // const inputName = document.createElement('div');
-    // inputName.innerHTML = '<input type ="text" id= "nameInput" class="nameInput" placeholder= "Enter your name"></input>';
-
-    // this.add.dom(this.game.config.width * 0.78, 420, inputName);
-
     this.score = this.add.text(this.game.config.width * 0.3, 360, `Hello ${user}, your Score is: ${this.sys.game.globals.model.score}`, {
       fontFamily: 'monospace',
       fontSize: 20,
@@ -76,9 +69,10 @@ class GameOverScene extends Phaser.Scene {
       align: 'center',
     });
 
-    postScore(...this.model.userName, ...this.model.score);
+    postScore(this.model.userName, this.model.score);
 
-    this.gameButton = new Button(this, config.width / 2, config.height / 2 + 100, 'Button1', 'Button2', 'Restart', 'Game');
+    this.gameButton = new Button(this, config.width / 2, config.height / 2 + 100,
+      'Button1', 'Button2', 'Restart', 'Game');
   }
 }
 

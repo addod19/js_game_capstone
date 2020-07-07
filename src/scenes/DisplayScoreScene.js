@@ -9,7 +9,6 @@ const DisplayScoreScene = class extends Phaser.Scene {
   }
 
   create() {
-
     this.add.text(400, 200, 'Best 5 Marksmen', {
       color: 'white',
       fontSize: '32px ',
@@ -37,7 +36,7 @@ const DisplayScoreScene = class extends Phaser.Scene {
       }
     });
 
-  const style = 'width: 450px; height: 80px; border: none; font: 30px sans-serif; color: #fff;';
+    const style = 'width: 450px; height: 80px; border: none; font: 30px sans-serif; color: #fff;';
     const btn = this.add.dom(390, 490, 'button', style, 'Guide');
     btn.addListener('click');
 
@@ -47,7 +46,6 @@ const DisplayScoreScene = class extends Phaser.Scene {
       this.scene.start('Guide');
     });
   }
-
 };
 
 export default DisplayScoreScene;

@@ -6,7 +6,6 @@ import Button from '../Elements/Button';
 /* eslint no-undef: "error" */
 /*  eslint class-methods-use-this: ["error", { "exceptMethods": ["centerButtonText"] }]  */
 
-
 const TitleScene = class extends Phaser.Scene {
   constructor() {
     super('Title');

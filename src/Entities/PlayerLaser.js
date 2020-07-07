@@ -1,6 +1,5 @@
 import Entity from './Entity';
 
-
 const PlayerLaser = class extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, 'sprLaserPlayer');

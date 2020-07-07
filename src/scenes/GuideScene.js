@@ -28,20 +28,8 @@ const GuideScene = class extends Phaser.Scene {
       type: 'text',
       name: 'nameField',
       fontSize: '32px',
-      bacjgroundColor: '#fff',
+      backgroundColor: '#fff',
     });
-
-    // const style = 'background: url(assets/ui/button_small.png); width: 490px; height: 77px; border: none; font: 32px Georgia; color: #fff;';
-    // const btn = this.add.dom(390, 550, 'button', style, 'Play Now');
-    // btn.addListener('click');
-
-    // btn.on('click', () => {
-    //   if (input.node.value) {
-    //     this.model = this.sys.game.globals.model;
-    //     this.model.userName = input.node.value;
-    //     this.scene.start('Title');
-    //   }
-    // });
 
     this.gameTitle = this.add.text(config.width / 3 - 10, config.height / 2 - 100, 'Best Maskman ', {
       fontSize: this.game.config.width / 15,
@@ -66,16 +54,12 @@ const GuideScene = class extends Phaser.Scene {
       backgroundColor: '#000000',
       color: '#11edba',
     });
-
-    const Button1 = new Button(this, config.width / 2 - -400, config.height / 2 + 100);
-
-    const style = 'width: 490px; height: 77px; border: none;font: 32px Mono-space; color: #fff;';
-    const gameButton = this.add.dom(900, 160, 'Button1', style, 'Play');
-
-    console.log(gameButton);
-    // console.log(input.node.value);
+    const style = 'background: url(assets/gh.png); width: 100px; height: 277px; border: none; font: 32px Georgia; color: #fff;';
+    const gameButton = this.add.dom( 950, 180, 'Button1', style, 'Play');
+    gameButton.addListener('click');
+    
     gameButton.on('click', () => {
-      if (this.input.node.value) {
+      if (input.node.value) {
         this.model = this.sys.game.globals.model;
         this.model.userName = input.node.value;
         this.scene.start('Game');

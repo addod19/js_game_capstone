@@ -5,7 +5,6 @@ import { ChaserShip, GunShip } from '../Entities/Enemy1';
 import CarrierShip from '../Entities/Enemy2';
 import ScrollingBackground from '../Entities/ScrollingBackground';
 
-
 /* global phaser */
 /* eslint no-undef: 'error' */
 
@@ -19,10 +18,8 @@ const GameScene = class extends Phaser.Scene {
     this.load.audio('sndExplode1', 'assets/laser1.wav');
     this.load.audio('sndLaser', 'assets/laser1.wav');
 
-
     this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
     this.load.image('sprBg1', 'assets/content/Background/starSmall.png');
-
 
     if (typeof player !== 'undefined') {
       this.body.setVelocity(0, 0);
@@ -46,7 +43,6 @@ const GameScene = class extends Phaser.Scene {
   }
 
   create() {
-
     const bg = this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
     bg.displayHeight = this.sys.game.height;
 
@@ -59,7 +55,6 @@ const GameScene = class extends Phaser.Scene {
     };
 
     this.lifes = this.add.image(20, 20, 'sprLifes').setScale(1.6);
-
 
     this.playerScore = this.add.text(40, 60, 'Score: 0', {
       fontFamily: 'monospace',
@@ -78,7 +73,6 @@ const GameScene = class extends Phaser.Scene {
       // attacked: this.sound.add('loseLife', { volume: 3 }),
       laser: this.sound.add('sndLaser'),
     };
-
 
     this.keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     this.keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
@@ -105,7 +99,6 @@ const GameScene = class extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
-
 
     this.time.addEvent({
       delay: 1000,
@@ -157,9 +150,6 @@ const GameScene = class extends Phaser.Scene {
       }
     });
 
-    
-
-
     this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
       if (!player.getData('isDead')
           && !enemy.getData('isDead')) {
@@ -178,13 +168,9 @@ const GameScene = class extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.enemyLasers, (player, laser) => {
       if (!player.getData('isDead')
           && !laser.getData('isDead')) {
-        if (player.getData('health') > 0) {
-          enemy.explode(true);
-        } else {
-          player.explode(false);
-          player.onDestroy();
-          enemy.explode(false);
-        }
+        player.explode(false);
+        player.onDestroy();
+        enemy.explode(false);
       }
     });
   }
@@ -261,8 +247,6 @@ const GameScene = class extends Phaser.Scene {
       }
     }
   }
-
-  
 
   getEnemiesByType(type) {
     const arr = [];

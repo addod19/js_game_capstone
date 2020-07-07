@@ -5,16 +5,16 @@ async function postScore(name, s) {
     score: s,
   };
     // request options
-  const options = {
+  const payload = {
     method: 'POST',
     body: JSON.stringify(userScore),
     headers: {
       'Content-Type': 'application/json',
-    },
+    }
   };
 
   // send POST request
-  fetch(url, options)
+  fetch(url, payload)
     .then(res => res.json());
 }
 
@@ -40,6 +40,5 @@ async function getScores() {
     .catch(error => [error]);
   return topScores;
 }
-
 
 export { postScore, getScores };

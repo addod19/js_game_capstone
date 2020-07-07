@@ -19,6 +19,6 @@ export default {
   },
   dom: {
     createContainer: true,
-  }
+  },
 
 };

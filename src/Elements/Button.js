@@ -3,7 +3,6 @@ import Phaser from 'phaser';
 /* eslint no-unused-vars: "error" */
 /* eslint import/no-unresolved: "error" */
 
-
 const Button = class extends Phaser.GameObjects.Container {
   constructor(scene, x, y, key1, key2, text, targetScene) {
     super(scene);

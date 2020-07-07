@@ -24,7 +24,7 @@ const ChaserShip = class extends Entity {
       callbackScope: this,
       loop: true,
     });
-    // this.play('sprEnemy1');
+    this.play('sprEnemy1');
   }
 
   onDestroy() {
