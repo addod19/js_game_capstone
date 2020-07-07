@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
 
 import config from '../config';
-import Button from '../Elements/Button';
 
 /* eslint no-undef: "error" */
 

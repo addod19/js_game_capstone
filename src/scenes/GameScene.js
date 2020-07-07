@@ -170,7 +170,6 @@ const GameScene = class extends Phaser.Scene {
           && !laser.getData('isDead')) {
         player.explode(false);
         player.onDestroy();
-        enemy.explode(false);
       }
     });
   }
