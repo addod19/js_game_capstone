@@ -1,7 +1,11 @@
 import 'regenerator-runtime';
 
+// global variables
+const apiKey = 'Zl4d7IVkemOTTVg2fUdz';
+const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${apiKey}/scores`;
+
 const postScore = async (name, s) => {
-  const url = '';
+  
   const userScore = {
     user: name,
     score: s,
@@ -9,38 +13,33 @@ const postScore = async (name, s) => {
     // request options
   const payload = {
     method: 'POST',
-    body: JSON.stringify(userScore),
     headers: {
+      Accept: 'Application/json',
       'Content-Type': 'application/json',
-    }
+    },
+    body: JSON.stringify(userScore),
   };
 
   // send POST request
-  fetch(url, payload)
-    .then(res => res.json());
+  const response = await fetch(url, payload);
+  const data = await response.json();
+  console.log(data)
+  return data;
 }
 
-async function getScores() {
-  const topScores = [];
-  const apiKey = 'Zl4d7IVkemOTTVg2fUdz';
-  fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${apiKey}/scores`, { mode: 'cors' })
-    .then(response => response.json())
-    .then(scores => {
-      const { result } = scores;
-      result.forEach((row) => {
-        const { user, score } = row;
-        topScores.push([user, score]);
-      });
-      topScores.sort((x, y) => {
-        if (x[1] === y[1]) {
-          return 0;
-        }
-        return (y[1] - x[1]);
-      });
-      this.displayPlayersScore(topScores);
-    })
-    .catch(error => [error]);
-  return topScores;
+const getScores = () => {
+  const payload = {
+    method: 'Get',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  }
+
+  const response = await fetch(url, payload);
+  const topScores = await response.json();
+
+  return topScores.data;
 }
 
 export { postScore, getScores };
