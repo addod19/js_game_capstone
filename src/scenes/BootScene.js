@@ -16,12 +16,11 @@ const BootScene = class extends Phaser.Scene {
     this.load.image('sprPlayer', 'assets/content/player.png');
 
     this.load.image('checkedBox', 'assets/btn2.png');
-    this.load.image('unChecked', 'assets/btn.png');
+    // this.load.image('unChecked', 'assets/btn.png');
 
     this.load.image('sprLifes', 'assets/content/life.png');
 
     this.load.image('sprEnemy1', 'assets/content/enemyShip.png');
-    this.load.image('sprEnemy2', 'assets/content/enemyUFO.png');
     this.load.image('sprLaserEnemy0', 'assets/content/laserRed.png');
 
     this.load.spritesheet('sprEnemy2', 'assets/content/enemyUFO.png', {

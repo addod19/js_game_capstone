@@ -1,4 +1,6 @@
-async function postScore(name, s) {
+import 'regenerator-runtime';
+
+const postScore = async (name, s) => {
   const url = '';
   const userScore = {
     user: name,
