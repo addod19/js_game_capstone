@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 /* eslint no-undef: "error" */
 /*  eslint class-methods-use-this: ["error", { "exceptMethods": ["preload"] }]  */
 /*  eslint class-methods-use-this: ["error", { "exceptMethods": ["postScore"] }]  */
+import { getScores } from '../Entities/apiData';
 
 const DisplayScoreScene = class extends Phaser.Scene {
   constructor() {
@@ -9,15 +10,15 @@ const DisplayScoreScene = class extends Phaser.Scene {
   }
 
   create() {
-    this.add.text(400, 200, 'Best 5 Marksmen', {
+    this.add.text(650, 200, 'Best 5 Marksmen', {
       color: 'white',
       fontSize: '32px ',
       fontFamily: 'san-serif',
     }).setOrigin(0.5, 0.5);
 
-    getScores().then((scores) => {
+    getScores().then((...scores) => {
       const scoreStyle = {
-        color: 'white',
+        color: 'red',
         fontSize: '18px ',
       };
       scores.sort((x, y) => y.score - x.score);
@@ -26,9 +27,9 @@ const DisplayScoreScene = class extends Phaser.Scene {
         if (scores[i] !== undefined) {
           this.add
             .text(
-              400,
+              650,
               240 + space * i,
-              `${i + 1}. ${scores[i].user} ${scores[i].score}`,
+              `${i + 1}. Name: ${scores[i].user} Score: ${scores[i].score}`,
               scoreStyle,
             )
             .setOrigin(0.5, 0.5);
@@ -36,8 +37,8 @@ const DisplayScoreScene = class extends Phaser.Scene {
       }
     });
 
-    const style = 'width: 450px; height: 80px; border: none; font: 30px sans-serif; color: #fff;';
-    const btn = this.add.dom(390, 490, 'button', style, 'Guide');
+    const style = 'width: 150px; height: 40px; border-radius: 30px; border: 0; font: 30px sans-serif; color: black;';
+    const btn = this.add.dom(650, 490, 'button', style, 'Guide');
     btn.addListener('click');
 
     btn.on('click', () => {

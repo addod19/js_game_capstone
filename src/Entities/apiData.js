@@ -23,11 +23,11 @@ const postScore = async (name, s) => {
   // send POST request
   const response = await fetch(url, payload);
   const data = await response.json();
-  console.log(data)
+  // console.log(data)
   return data;
 }
 
-const getScores = () => {
+const getScores = async () => {
   const payload = {
     method: 'Get',
     headers: {
@@ -39,6 +39,8 @@ const getScores = () => {
   const response = await fetch(url, payload);
   const topScores = await response.json();
 
+  console.log(response);
+  
   return topScores.data;
 }
 
