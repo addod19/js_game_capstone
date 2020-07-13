@@ -54,9 +54,9 @@ const GuideScene = class extends Phaser.Scene {
       color: '#11edba',
     });
     const style = 'background: url(assets/gh.png); width: 100px; height: 277px; border: none; font: 32px Georgia; color: #fff;';
-    const gameButton = this.add.dom( 950, 180, 'Button1', style, 'Play');
+    const gameButton = this.add.dom(950, 180, 'Button1', style, 'Play');
     gameButton.addListener('click');
-    
+
     gameButton.on('click', () => {
       if (input.node.value) {
         this.model = this.sys.game.globals.model;

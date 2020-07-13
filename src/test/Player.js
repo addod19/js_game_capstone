@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import Entity from './Entity';
-import PlayerLaser from './PlayerLaser';
+import PlayerLaser from '../Entities/PlayerLaser';
 
 const Player = class extends Entity {
   constructor(scene, x, y, key) {

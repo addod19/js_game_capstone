@@ -51,7 +51,7 @@ class GameOverScene extends Phaser.Scene {
     this.gameButton = new Button(this, config.width / 1.57, config.height / 2 + 100,
       'Button1', 'Button2', 'Restart', 'Game');
     this.gameButton = new Button(this, config.width / 4.5, config.height / 2 + 100,
-      'Button1', 'Button2', 'Submit', 'DisplayScore');  
+      'Button1', 'Button2', 'Submit', 'DisplayScore');
   }
 }
 

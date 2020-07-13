@@ -1,3 +1,5 @@
+import Phaser from 'phaser';
+
 import config from './config';
 import GameScene from './scenes/GameScene';
 import GuideScene from './scenes/GuideScene';
@@ -10,9 +12,10 @@ import DisplayScoreScene from './scenes/DisplayScoreScene';
 import GameOverScene from './scenes/GameOverScene';
 import Model from './Model';
 
-/* global phaser */
 /* eslint no-undef: "error" */
 /* eslint import/no-unresolved: "error" */
+
+/* eslint no-unused-vars: 2 */
 
 const Game = class extends Phaser.Game {
   constructor() {

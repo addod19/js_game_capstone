@@ -5,7 +5,6 @@ const apiKey = 'Zl4d7IVkemOTTVg2fUdz';
 const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${apiKey}/scores`;
 
 const postScore = async (name, s) => {
-  
   const userScore = {
     user: name,
     score: s,
@@ -25,7 +24,7 @@ const postScore = async (name, s) => {
   const data = await response.json();
   // console.log(data)
   return data;
-}
+};
 
 const getScores = async () => {
   const payload = {
@@ -34,14 +33,12 @@ const getScores = async () => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-  }
+  };
 
   const response = await fetch(url, payload);
   const topScores = await response.json();
 
-  console.log(response);
-  
   return topScores.data;
-}
+};
 
 export { postScore, getScores };

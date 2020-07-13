@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 
+/* eslint no-plusplus: "error" */
+
 const ScrollingBackground = class {
   constructor(scene, key, velocityY) {
     this.scene = scene;
@@ -12,7 +14,7 @@ const ScrollingBackground = class {
   }
 
   createLayers() {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 2; i += 1) {
       // creating 2 backgrounds will allow continuous scroll
       const layer = this.scene.add.sprite(0, 0, this.key);
       layer.y = (layer.displayHeight * i);

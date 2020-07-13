@@ -1,12 +1,15 @@
 import Phaser from 'phaser';
 
+/* eslint no-unused-vars: 2 */
+
 import Player from '../Entities/Player';
-import { ChaserShip, GunShip } from '../Entities/Enemy1';
+import ChaserShip from '../Entities/Enemy1';
+import GunShip from '../Entities/GunShip';
 import CarrierShip from '../Entities/Enemy2';
 import ScrollingBackground from '../Entities/ScrollingBackground';
 
-/* global phaser */
 /* eslint no-undef: 'error' */
+/* eslint no-plusplus: "error" */
 
 const GameScene = class extends Phaser.Scene {
   constructor() {
@@ -19,7 +22,7 @@ const GameScene = class extends Phaser.Scene {
     this.load.audio('sndLaser', 'assets/laser1.wav');
 
     this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
-    this.load.image('sprBg1', 'assets/content/Background/starSmall.png');
+    // this.load.image('sprBg1', 'assets/content/Background/starSmall.png');
 
     if (typeof player !== 'undefined') {
       this.body.setVelocity(0, 0);
@@ -36,7 +39,7 @@ const GameScene = class extends Phaser.Scene {
     );
 
     this.backgrounds = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i += 1) {
       const bg = new ScrollingBackground(this, 'sprBg0', i * 10);
       this.backgrounds.push(bg);
     }
@@ -45,6 +48,7 @@ const GameScene = class extends Phaser.Scene {
   create() {
     const bg = this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
     bg.displayHeight = this.sys.game.height;
+    bg.displayWidth = this.sys.game.width;
 
     this.sfx = {
       explosions: [
@@ -202,7 +206,7 @@ const GameScene = class extends Phaser.Scene {
       }
     }
 
-    for (let i = 0; i < this.enemies.getChildren().length; i++) {
+    for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
       const enemy = this.enemies.getChildren()[i];
 
       enemy.update();
@@ -219,7 +223,7 @@ const GameScene = class extends Phaser.Scene {
       }
     }
     // Frees up processing power and memory
-    for (let i = 0; i < this.enemyLasers.getChildren().length; i++) {
+    for (let i = 0; i < this.enemyLasers.getChildren().length; i += 1) {
       const laser = this.enemyLasers.getChildren()[i];
       laser.update();
 
@@ -232,7 +236,7 @@ const GameScene = class extends Phaser.Scene {
         }
       }
     }
-    for (let i = 0; i < this.playerLasers.getChildren().length; i++) {
+    for (let i = 0; i < this.playerLasers.getChildren().length; i += 1) {
       const laser = this.playerLasers.getChildren()[i];
       laser.update();
 
@@ -249,9 +253,9 @@ const GameScene = class extends Phaser.Scene {
 
   getEnemiesByType(type) {
     const arr = [];
-    for (let i = 0; i < this.enemies.getChildren().length; i++) {
+    for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
       const enemy = this.enemies.getChildren()[i];
-      if (enemy.getData('type') == type) {
+      if (enemy.getData('type') === type) {
         arr.push(enemy);
       }
     }
