@@ -42,7 +42,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. `git clone https://github.com/addod19/js_game_capstone.git`
 2. `cd js_game_capstone`
-3. `git checkout initial`
+3. `git checkout shoot`
 4. `npm i`
 5. `npm start`
 6. `npm run build`
