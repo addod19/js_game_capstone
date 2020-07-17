@@ -5,12 +5,12 @@
 ## Features
 
 1. The player can navigate to the following scenes after the game loads
-Credits: This is where we give credits to the Microverse team, opengameart, and the creator of the game
-Options: We can toggle the background music on/off
-Play: We navigate the guide scene and understand how to play the game before proceeding
-2. A player can kill the enemy attacking
-3. After the game is over or the stage is completed, the player enters the name and exit
-
+`Credits`: This is where we give credits to the Microverse team, opengameart, and the creator of the game.
+`Options`: We can toggle the background music on/off.
+`Play`: We navigate the guide scene and understand how to play the game before proceeding.
+2. A player can fire a laser to kill the enemy attacking.
+3. The enemy can also fire laser and kill the player.
+3. After the game is over or the stage is completed, the player has the option to `restart` game/`submit` score.
 
 ## Future Feature (v2.02)
 
@@ -42,7 +42,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. `git clone https://github.com/addod19/js_game_capstone.git`
 2. `cd js_game_capstone`
-3. `git checkout initial`
+3. `git checkout shoot`
 4. `npm i`
 5. `npm start`
 6. `npm run build`
