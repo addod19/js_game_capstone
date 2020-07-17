@@ -36,6 +36,10 @@
 
 [Live Demo Link](https://addod19.github.io/js_game_capstone/)
 
+## Video Presentation
+
+[presentation](https://www.loom.com/share/b6e85873de1949d09f663ad1b394cfc0)
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
