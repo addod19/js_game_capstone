@@ -22,7 +22,6 @@ const GameScene = class extends Phaser.Scene {
     this.load.audio('sndLaser', 'assets/laser1.wav');
 
     this.load.image('sprBg0', 'assets/content/Background/starBackground.png');
-    // this.load.image('sprBg1', 'assets/content/Background/starSmall.png');
 
     if (typeof player !== 'undefined') {
       this.body.setVelocity(0, 0);
@@ -74,7 +73,6 @@ const GameScene = class extends Phaser.Scene {
         this.sound.add('sndExplode0'),
         this.sound.add('sndExplode1'),
       ],
-      // attacked: this.sound.add('loseLife', { volume: 3 }),
       laser: this.sound.add('sndLaser'),
     };
 

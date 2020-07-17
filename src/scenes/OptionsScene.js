@@ -20,7 +20,6 @@ const OptionsScene = class extends Phaser.Scene {
     this.model = this.sys.game.globals.model;
 
     this.text = this.add.text(300, 50, 'Options', { fontSize: 40 });
-    // this.musicButton = this.add.image(200, 100, 'checkedBox');
     this.musicButton = this.add.image(200, 100, 'unchecked');
     this.musicText = this.add.text(250, 100, 'Music Enabled', { fontSize: 24 });
 
