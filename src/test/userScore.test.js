@@ -8,6 +8,6 @@ describe('User score is present or not', () => {
 
   it(' Can catch a wrong user score  ', () => {
     Model.score = '';
-    expect(Model.score).not_toBe('200');
+    expect(Model.score).not.toBe('200');
   });
 });

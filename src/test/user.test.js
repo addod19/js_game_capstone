@@ -8,6 +8,6 @@ describe('User name is present', () => {
 
   it(' Can not set username ', () => {
     Model.userName = 'Dan';
-    expect(Model.userName).not_toBe('Fred');
+    expect(Model.userName).not.toBe('Fred');
   });
 });
