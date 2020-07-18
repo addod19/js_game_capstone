@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+import 'phaser';
 import config from '../config';
 
 /* eslint no-undef: "error" */

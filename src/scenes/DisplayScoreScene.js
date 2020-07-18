@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+import 'phaser';
 /* eslint no-undef: "error" */
 /*  eslint class-methods-use-this: ["error", { "exceptMethods": ["preload"] }]  */
 /*  eslint class-methods-use-this: ["error", { "exceptMethods": ["postScore"] }]  */
