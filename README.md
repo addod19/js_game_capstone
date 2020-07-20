@@ -41,7 +41,7 @@ The rest of the days are for the following:
 
 ## Live Demo
 
-[Live Demo Link](https://addod19.github.io/js_game_capstone/)
+[Live Demo Link](https://elastic-euclid-4a337b.netlify.app/)
 
 ## Video Presentation
 
