@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+import 'phaser';
 
 /* eslint no-unused-vars: "error" */
 /* eslint import/no-unresolved: "error" */
