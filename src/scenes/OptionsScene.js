@@ -30,7 +30,7 @@ const OptionsScene = class extends Phaser.Scene {
       this.updateAudio();
     });
 
-    this.gameButton = new Button(this, config.width / 2, config.height / 2 + 100, 'Button1', 'Button2', 'Back', 'Title');
+    this.gameButton = new Button(this, (config.width / 2), (config.height / 2) + 100, 'Button1', 'Button2', 'Back', 'Title');
 
     this.updateAudio();
   }
