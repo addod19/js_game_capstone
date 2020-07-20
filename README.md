@@ -41,7 +41,7 @@ The rest of the days are for the following:
 
 ## Live Demo
 
-[Live Demo Link](https://elastic-euclid-4a337b.netlify.app/)
+[gh pages deployment](https://elastic-euclid-4a337b.netlify.app/) || [netlify deployment](https://wonderful-visvesvaraya-d30fae.netlify.app/)
 
 ## Video Presentation
 
