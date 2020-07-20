@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 /* eslint no-undef: "error" */
 /*  eslint class-methods-use-this: ["error", { "exceptMethods": ["preload"] }]  */
 /*  eslint class-methods-use-this: ["error", { "exceptMethods": ["postScore"] }]  */
@@ -28,7 +28,7 @@ const DisplayScoreScene = class extends Phaser.Scene {
           this.add
             .text(
               650,
-              240 + space * i,
+              240 + (space * i),
               `${i + 1}. Name: ${scores[i].user} Score: ${scores[i].score}`,
               scoreStyle,
             )
