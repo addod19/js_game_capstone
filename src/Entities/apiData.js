@@ -22,7 +22,6 @@ const postScore = async (name, s) => {
   // send POST request
   const response = await fetch(url, payload);
   const data = await response.json();
-  // console.log(data)
   return data;
 };
 
@@ -37,7 +36,7 @@ const getScores = async () => {
 
   const response = await fetch(url, payload);
   const topScores = await response.json();
-
+  console.log(topScores);
   return topScores.result;
 };
 
