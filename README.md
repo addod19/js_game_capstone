@@ -18,7 +18,7 @@
 2. Add more levels to the game
 3. Each level should have a more attacking enemy
 
-## Design Process (GDD)
+## Game Design Process (GDD)
 
 At the end of day 2, I have learned the basics of Phaser3. Setting up and creating scenes, adding objects to the scenes, adding collision
 and assets to the scenes.
