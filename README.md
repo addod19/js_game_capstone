@@ -18,7 +18,14 @@
 2. Add more levels to the game
 3. Each level should have a more attacking enemy
 
-## Video Presentation
+## Design Process (GDD)
+
+At the end of day 2, I have learned the basics of Phaser3. Setting up and creating scenes, adding objects to the scenes, adding collision
+and assets to the scenes.
+The rest of the days are for the following:
+- Implement the logic behind the game.
+- Implement the service API to record and show user name and score.
+- Implement test for our Model and API
 
 
 ## Screenshots
@@ -27,7 +34,7 @@
 
 ## Built With
 
-- Javascript es6
+- Javascript ES6
 - Phaser3
 - Babel
 - Webpack
