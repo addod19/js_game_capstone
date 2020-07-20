@@ -1,4 +1,4 @@
-import'phaser';
+import 'phaser';
 
 /* eslint no-undef: 'error' */
 /* eslint import/no-unresolved: 'error' */
