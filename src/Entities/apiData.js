@@ -37,8 +37,8 @@ const getScores = async () => {
 
   const response = await fetch(url, payload);
   const topScores = await response.json();
-
-  return topScores.data;
+  console.log(topScores);
+  return topScores.result;
 };
 
 export { postScore, getScores };
