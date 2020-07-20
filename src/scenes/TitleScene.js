@@ -19,17 +19,17 @@ const TitleScene = class extends Phaser.Scene {
     const scale = Math.max(scaleX, scaleY);
     image.setScale(scale).setScrollFactor(1);
 
-    this.gameTitle = this.add.text(config.width / 2 + 50, config.height / 2 - 260, 'Best Maskman? ', {
+    this.gameTitle = this.add.text((config.width / 2) + 50, (config.height / 2) - 260, 'Best Maskman? ', {
       fontSize: this.game.config.width / 20,
       align: 'center',
       backgroundColor: '#000000',
     });
 
-    this.gameButton = new Button(this, config.width / 2 - 400, config.height / 2 - 60, 'Button1', 'Button2', 'Play', 'Guide');
+    this.gameButton = new Button(this, (config.width / 2) - 400, (config.height / 2) - 60, 'Button1', 'Button2', 'Play', 'Guide');
 
-    this.optionsButton = new Button(this, config.width / 2 - 200, config.height / 2 - 60, 'Button1', 'Button2', 'Options', 'Options');
+    this.optionsButton = new Button(this, (config.width / 2) - 200, (config.height / 2) - 60, 'Button1', 'Button2', 'Options', 'Options');
 
-    this.creditsButton = new Button(this, config.width / 2, config.height / 2 - 60, 'Button1', 'Button2', 'Credits', 'Credits');
+    this.creditsButton = new Button(this, config.width / 2, (config.height / 2) - 60, 'Button1', 'Button2', 'Credits', 'Credits');
 
     this.model = this.sys.game.globals.model;
     if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
@@ -44,7 +44,7 @@ const TitleScene = class extends Phaser.Scene {
     Phaser.Display.Align.In.Center(
       gameObject,
       this.add.zone(config.width / 2,
-        config.height / 2 - offset * 100, config.width, config.height),
+        (config.height / 2) - (offset * 100), config.width, config.height),
     );
   }
 

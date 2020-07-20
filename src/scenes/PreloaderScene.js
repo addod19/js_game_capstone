@@ -21,7 +21,7 @@ const PreloaderScene = class extends Phaser.Scene {
     const { height } = this.cameras.main;
     const loadingText = this.make.text({
       x: width / 2,
-      y: height / 2 - 50,
+      y: (height / 2) - 50,
       text: 'Loading Game...',
       style: {
         font: '2em san-serif',
@@ -32,7 +32,7 @@ const PreloaderScene = class extends Phaser.Scene {
 
     const percentText = this.make.text({
       x: width / 2,
-      y: height / 2 - 5,
+      y: (height / 2) - 5,
       text: '0%',
       style: {
         font: '1.8em sans-serif',
@@ -43,7 +43,7 @@ const PreloaderScene = class extends Phaser.Scene {
 
     const assetText = this.make.text({
       x: width / 2,
-      y: height / 2 + 50,
+      y: (height / 2) + 50,
       text: '',
       style: {
         font: '1.8em sans-serif',

@@ -16,7 +16,7 @@ const GuideScene = class extends Phaser.Scene {
     const scale = Math.max(scaleX, scaleY);
     image.setScale(scale).setScrollFactor(1);
 
-    this.intro = this.add.text(config.width / 3 - 10, config.height / 5 - 100, 'Please enter your name ', {
+    this.intro = this.add.text((config.width / 3) - 10, (config.height / 5) - 100, 'Please enter your name ', {
       fontSize: this.game.config.width / 25,
       align: 'center',
       color: '#fff',
@@ -30,7 +30,7 @@ const GuideScene = class extends Phaser.Scene {
       backgroundColor: '#fff',
     });
 
-    this.gameTitle = this.add.text(config.width / 3 - 10, config.height / 2 - 100, 'Best Maskman ', {
+    this.gameTitle = this.add.text((config.width / 3) - 10, (config.height / 2) - 100, 'Best Maskman ', {
       fontSize: this.game.config.width / 15,
       align: 'center',
       backgroundColor: '#000000',
@@ -38,7 +38,7 @@ const GuideScene = class extends Phaser.Scene {
       fontFamily: 'open-sans',
     });
 
-    this.gameTitle = this.add.text(config.width / 2 - 600, config.height / 2, 'When '
+    this.gameTitle = this.add.text((config.width / 2) - 600, config.height / 2, 'When '
       + 'the game starts, the enemy starts attacking the mask man.'
       + '\n For the mask man to survive, he needs to kill as many'
       + '\n enemies as possible. The score keeps increasing for every kill'
