@@ -37,7 +37,7 @@ const getScores = async () => {
 
   const response = await fetch(url, payload);
   const topScores = await response.json();
-  console.log(topScores);
+
   return topScores.result;
 };
 
