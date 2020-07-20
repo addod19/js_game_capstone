@@ -23,9 +23,9 @@ const AlignGrid = class {
     }
     this.scene = config.scene;
 
-    this.cw = config.width / config.cols;
+    this.cw = (config.width / config.cols);
 
-    this.ch = config.height / config.rows;
+    this.ch = (config.height / config.rows);
   }
 
   show() {
@@ -43,8 +43,8 @@ const AlignGrid = class {
   }
 
   placeAt(xx, yy, obj) {
-    const x2 = this.cw * xx + this.cw / 2;
-    const y2 = this.ch * yy + this.ch / 2;
+    const x2 = (this.cw * xx) + (this.cw / 2);
+    const y2 = (this.ch * yy) + (this.ch / 2);
     obj.x = x2;
     obj.y = y2;
   }
@@ -64,8 +64,8 @@ const AlignGrid = class {
   getPosByIndex(index) {
     const yy = Math.floor(index / this.config.cols);
     const xx = index - (yy * this.config.cols);
-    const x2 = this.cw * xx + this.cw / 2;
-    const y2 = this.ch * yy + this.ch / 2;
+    const x2 = (this.cw * xx) + (this.cw / 2);
+    const y2 = (this.ch * yy) + (this.ch / 2);
     return {
       x: x2,
       y: y2,
