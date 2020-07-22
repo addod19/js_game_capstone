@@ -41,9 +41,8 @@ The rest of the days are for the following:
 
 ## Live Demo
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8add42d6-10ec-4b00-8c21-9f8f824b1aaf/deploy-status)](https://app.netlify.com/sites/wonderful-visvesvaraya-d30fae/deploys)
 
-[gh pages deployment](https://elastic-euclid-4a337b.netlify.app/) || [netlify deployment](https://wonderful-visvesvaraya-d30fae.netlify.app/)
+[gh pages deployment](https://addod19.github.io/js_game_capstone/)
 
 ## Video Presentation
 
