@@ -12,6 +12,7 @@ const postScore = async (name, s) => {
     // request options
   const payload = {
     method: 'POST',
+    mode: 'cors',
     headers: {
       Accept: 'Application/json',
       'Content-Type': 'application/json',
@@ -28,6 +29,7 @@ const postScore = async (name, s) => {
 const getScores = async () => {
   const payload = {
     method: 'Get',
+    mode: 'cors',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -36,7 +38,7 @@ const getScores = async () => {
 
   const response = await fetch(url, payload);
   const topScores = await response.json();
-  console.log(topScores);
+
   return topScores.result;
 };
 
