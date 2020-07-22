@@ -1,0 +1,63 @@
+{
+  "name": "js_capstoneproject",
+  "jest": {
+    "verbose": true
+  },
+  "version": "1.1.0",
+  "description": "JS Capstone Project built with ES6 and Phaser",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack --config webpack/prod.js ",
+    "start": "webpack-dev-server --config webpack/base.js --open",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/addod19/js_game_capstone.git"
+  },
+  "author": "Daniel Larbi Addo <addodaniellarbi@gmail.com> (https://github.com/addod19)",
+  "license": "MIT",
+  "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
+  "bugs": {
+    "url": "https://github.com/addod19/js_game_capstone/issues"
+  },
+  "homepage": "https://github.com/addod19/js_game_capstone#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "file-loader": "^4.3.0",
+    "jest": "^26.1.0",
+    "raw-loader": "^3.1.0",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.8.0",
+    "stylelint-scss": "^3.17.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.4",
+    "clean-webpack-plugin": "^3.0.0",
+    "core-js": "^3.6.5",
+    "html-webpack-plugin": "^3.2.0",
+    "phaser": "^3.23.0",
+    "regenerator-runtime": "^0.13.5",
+    "terser-webpack-plugin": "^2.3.7",
+    "webpack": "^4.43.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "keywords": [],
+  "browserslist": [
+    "last 3 and_chr versions",
+    "last 3 chrome versions",
+    "last 3 opera versions",
+    "last 3 ios_saf versions",
+    "last 3 safari versions"
+  ]
+}
